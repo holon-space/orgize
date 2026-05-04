@@ -172,8 +172,11 @@ fn headline_tags_node(input: Input) -> IResult<Input, GreenElement, ()> {
             i = ii;
         } else if String::from_utf8_lossy(item)
             .chars()
+            // The default predicate matches org-element.el (alphanumeric +
+            // `_@#%`), extended with `-` to accept hyphenated tags emitted by
+            // Orgzly / Logseq / Org-Roam. Override via `ParseConfig::is_tag_char`.
             // https://github.com/yyr/org-mode/blob/d8494b5668ad4d4e68e83228ae8451eaa01d2220/lisp/org-element.el#L922C25-L922C32
-            .all(|c| c.is_alphanumeric() || c == '_' || c == '@' || c == '#' || c == '%')
+            .all(input.c.is_tag_char)
         {
             children.push(input.slice(ii + 1..i).text_token());
             children.push(token(COLON, ":"));
@@ -365,5 +368,40 @@ fn issue_15_16() {
     assert_eq!(
         vec!["余".to_string(), "破".to_string()],
         tags.map(|x| x.to_string()).collect::<Vec<_>>(),
+    );
+
+    // Hyphenated tags ship in this fork's default predicate.
+    let tags = to_headline("* a :G1:edge-abstraction:").tags();
+    assert_eq!(
+        vec!["G1".to_string(), "edge-abstraction".to_string()],
+        tags.map(|x| x.to_string()).collect::<Vec<_>>(),
+    );
+}
+
+#[test]
+fn custom_is_tag_char() {
+    use crate::{ast::Headline, ParseConfig};
+
+    let strict_config = ParseConfig {
+        is_tag_char: |c| c.is_alphanumeric() || c == '_' || c == '@' || c == '#' || c == '%',
+        ..Default::default()
+    };
+
+    let parsed = strict_config
+        .parse("* a :edge-abstraction:")
+        .first_node::<Headline>()
+        .unwrap();
+    assert_eq!(parsed.tags().count(), 0, "strict predicate must reject hyphen");
+
+    let lenient_parsed = ParseConfig::default()
+        .parse("* a :edge-abstraction:")
+        .first_node::<Headline>()
+        .unwrap();
+    assert_eq!(
+        vec!["edge-abstraction".to_string()],
+        lenient_parsed
+            .tags()
+            .map(|t| t.to_string())
+            .collect::<Vec<_>>(),
     );
 }

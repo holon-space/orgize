@@ -45,6 +45,14 @@ pub struct ParseConfig {
     ///
     /// Equivalent to [`org-element-affiliated-keywords`](https://git.sr.ht/~bzg/org-mode/tree/6f960f3c6a4dfe137fbd33fef9f7dadfd229600c/item/lisp/org-element.el#L331)
     pub affiliated_keywords: Vec<String>,
+
+    /// Predicate for characters allowed inside a headline tag.
+    ///
+    /// The org-element.el reference allows alphanumeric characters plus
+    /// `_`, `@`, `#`, `%`. Real-world editors (Orgzly, Logseq, Org-Roam)
+    /// also accept `-` so this fork's default extends the set with `-`.
+    /// Override for stricter or even more lenient behaviour.
+    pub is_tag_char: fn(char) -> bool,
 }
 
 impl ParseConfig {
@@ -82,6 +90,14 @@ impl Default for ParseConfig {
                 "SRCNAME".into(),
                 "TBLNAME".into(),
             ],
+            is_tag_char: |c| {
+                c.is_alphanumeric()
+                    || c == '_'
+                    || c == '@'
+                    || c == '#'
+                    || c == '%'
+                    || c == '-'
+            },
         }
     }
 }

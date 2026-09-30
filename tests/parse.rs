@@ -35,3 +35,16 @@ fn parse() {
         let _ = orgize::Org::parse(input);
     }
 }
+
+#[test]
+fn empty_greater_block() {
+    use orgize::rowan::ast::AstNode;
+    for input in [
+        "#+begin_quote\n#+end_quote\n",
+        "#+BEGIN_CENTER\n#+END_CENTER\n",
+        "* h\n#+begin_quote\n#+end_quote\ntext\n",
+    ] {
+        let org = orgize::Org::parse(input);
+        assert_eq!(org.document().syntax().to_string(), input);
+    }
+}

@@ -22,7 +22,7 @@ pub fn link_node(input: Input) -> IResult<Input, GreenElement, ()> {
     let mut parser = map(
         tuple((
             l_bracket2_token,
-            take_while(|c: char| c != '<' && c != '>' && c != '\n' && c != ']'),
+            take_while(|c: char| c != '<' && c != '>' && c != '\n' && c != '[' && c != ']'),
             opt(tuple((
                 r_bracket_token,
                 l_bracket_token,
@@ -109,4 +109,19 @@ fn parse() {
     let config = &ParseConfig::default();
 
     assert!(link_node(("[[#id][desc]", config).into()).is_err());
+}
+
+#[test]
+fn a_bracket_in_the_path_is_no_link() {
+    use crate::{rowan::ast::AstNode, Org};
+
+    let org = Org::parse("[[a[b]] [[c]]");
+    let links: Vec<String> = org
+        .document()
+        .syntax()
+        .descendants()
+        .filter(|n| n.kind() == LINK)
+        .map(|n| n.to_string())
+        .collect();
+    assert_eq!(links, vec!["[[c]]".to_string()]);
 }

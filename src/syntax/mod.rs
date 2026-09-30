@@ -27,6 +27,7 @@ pub mod line_break;
 pub mod link;
 pub mod list;
 pub mod macros;
+pub mod nesting;
 pub mod object;
 pub mod paragraph;
 pub mod planning;

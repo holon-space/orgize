@@ -15,6 +15,7 @@ use super::{
     line_break::line_break_node,
     link::link_node,
     macros::macros_node,
+    nesting::{too_deep, Nesting},
     radio_target::radio_target_node,
     snippet::snippet_node,
     subscript_superscript::{self, subscript_node, superscript_node},
@@ -229,6 +230,15 @@ where
     F: Fn(Input) -> ObjectPositions,
     P: Fn(Input<'a>, Input<'a>) -> IResult<Input<'a>, GreenElement, ()>,
 {
+    let _level = Nesting::enter();
+    if too_deep() {
+        return if input.is_empty() {
+            vec![]
+        } else {
+            vec![input.text_token()]
+        };
+    }
+
     let mut i = input;
     let mut nodes = vec![];
 

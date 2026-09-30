@@ -16,6 +16,7 @@ use super::{
     keyword::{affiliated_keyword_nodes, keyword_node},
     latex_environment::latex_environment_node,
     list::list_node,
+    nesting::{too_deep, Nesting},
     paragraph::{paragraph_node, paragraph_nodes},
     rule::rule_node,
     table::{org_table_node, table_el_node},
@@ -36,6 +37,7 @@ pub fn element_nodes(input: Input) -> Result<Vec<GreenElement>, nom::Err<()>> {
     //     input.s
     // );
 
+    let _level = Nesting::enter();
     let mut i = input;
     let mut nodes = vec![];
 
@@ -70,6 +72,10 @@ pub fn element_nodes(input: Input) -> Result<Vec<GreenElement>, nom::Err<()>> {
     tracing::instrument(level = "debug", skip(input), fields(input = input.s))
 )]
 pub fn element_node(input: Input) -> IResult<Input, GreenElement, ()> {
+    if too_deep() {
+        return Err(nom::Err::Error(()));
+    }
+
     // skip affiliated keyword first
     let (i, nodes) = affiliated_keyword_nodes(input)?;
 

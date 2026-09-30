@@ -101,11 +101,16 @@ fn emphasis(marker: u8) -> impl Fn(Input) -> IResult<Input, Input, ()> {
             return Err(nom::Err::Error(()));
         }
 
+        let mut newlines = 0;
+        let mut counted_to = 1;
         for idx in memchr_iter(marker, bytes).skip(1) {
             // contains at least one character
             if idx == 1 {
                 continue;
-            } else if count(&bytes[1..idx], b'\n') >= 2 {
+            }
+            newlines += count(&bytes[counted_to..idx], b'\n');
+            counted_to = idx;
+            if newlines >= 2 {
                 break;
             } else if validate_marker(idx, input) {
                 return Ok((input.slice(idx + 1..), input.slice(1..idx)));

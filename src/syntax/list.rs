@@ -16,6 +16,7 @@ use super::{
     element::element_node,
     input::Input,
     keyword::affiliated_keyword_nodes,
+    nesting::Nesting,
     object::standard_object_nodes,
     paragraph::paragraph_nodes,
     SyntaxKind::*,
@@ -217,6 +218,7 @@ fn list_item_tag(input: Input) -> IResult<Input, (GreenElement, Input), ()> {
     tracing::instrument(level = "debug", skip(input), fields(input = input.s))
 )]
 fn list_item_content_node(input: Input, indent: usize) -> IResult<Input, (bool, GreenElement), ()> {
+    let _level = Nesting::enter();
     if memchr(b'\n', input.as_bytes()).is_none() {
         return Ok((
             input.of(""),

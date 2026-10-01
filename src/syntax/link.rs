@@ -1,6 +1,8 @@
+use std::cell::Cell;
+
 use nom::{
-    bytes::complete::take_while,
-    combinator::{map, opt},
+    branch::alt,
+    combinator::map,
     sequence::tuple,
     IResult, InputTake,
 };
@@ -20,14 +22,58 @@ type LinkTail<'a> = (
 );
 
 fn link_tail(input: Input) -> IResult<Input, LinkTail, ()> {
-    tuple((
-        opt(tuple((
-            r_bracket_token,
-            l_bracket_token,
-            take_while(|c: char| c != '[' && c != ']'),
-        ))),
-        r_bracket2_token,
+    alt((
+        map(
+            tuple((r_bracket_token, l_bracket_token, link_description, r_bracket2_token)),
+            |(r_bracket, l_bracket, desc, r_bracket2)| (Some((r_bracket, l_bracket, desc)), r_bracket2),
+        ),
+        map(r_bracket2_token, |r_bracket2| (None, r_bracket2)),
     ))(input)
+}
+
+thread_local! {
+    /// While objects are parsed: the start and end address of a stretch of
+    /// the text known to hold no `]]`.
+    static NO_CLOSE: Cell<Option<Option<(usize, usize)>>> = const { Cell::new(None) };
+}
+
+/// Held while one run of objects is parsed, so a description that finds no
+/// `]]` is not searched for again from a later `[[` of the same text.
+pub struct DescriptionScan(Option<Option<(usize, usize)>>);
+
+impl DescriptionScan {
+    pub fn enter() -> DescriptionScan {
+        DescriptionScan(NO_CLOSE.with(|memo| memo.replace(Some(None))))
+    }
+}
+
+impl Drop for DescriptionScan {
+    fn drop(&mut self) {
+        NO_CLOSE.with(|memo| memo.set(self.0));
+    }
+}
+
+/// A link description as `org-link-bracket-re` reads it: one character or
+/// more, up to the first `]]`.
+fn link_description(input: Input) -> IResult<Input, Input, ()> {
+    let first = input.s.chars().next().ok_or(nom::Err::Error(()))?;
+    let from = input.s.as_ptr() as usize + first.len_utf8();
+    let end = input.s.as_ptr() as usize + input.s.len();
+    let memo = NO_CLOSE.with(Cell::get);
+    if let Some(Some((no_close_from, no_close_end))) = memo {
+        if no_close_end == end && no_close_from <= from {
+            return Err(nom::Err::Error(()));
+        }
+    }
+    match input.s[first.len_utf8()..].find("]]") {
+        Some(at) => Ok(input.take_split(first.len_utf8() + at)),
+        None => {
+            if memo.is_some() {
+                NO_CLOSE.with(|memo| memo.set(Some(Some((from, end)))));
+            }
+            Err(nom::Err::Error(()))
+        }
+    }
 }
 
 /// The link path, ended where org's `org-link-bracket-re` ends it.
@@ -203,6 +249,25 @@ fn a_link_path_ends_where_org_ends_it() {
 }
 
 #[test]
+fn a_link_description_ends_where_org_ends_it() {
+    // Each row is a line, a tab, then the links `emacs -Q` 30.2 (org 9.7.11)
+    // reads in it: each one's text, `\x1e`, its path; joined by `\x1f`.
+    let wrong: Vec<String> = include_str!("link_description_org_9_7_11.txt")
+        .lines()
+        .filter_map(|row| {
+            let (line, org) = row.split_once('\t').unwrap();
+            let org: Vec<String> = org
+                .split_terminator('\x1f')
+                .map(|link| link.split_once('\x1e').unwrap().0.to_string())
+                .collect();
+            let ours = links(line);
+            (ours != org).then(|| format!("{line:?}: org {org:?}, orgize {ours:?}"))
+        })
+        .collect();
+    assert!(wrong.is_empty(), "{}", wrong.join("\n"));
+}
+
+#[test]
 fn a_link_path_is_read_in_time_linear_in_its_length() {
     use std::time::{Duration, Instant};
 
@@ -214,6 +279,9 @@ fn a_link_path_is_read_in_time_linear_in_its_length() {
         ("", r"[[a\\\\]]] "),
         ("", r"[[a\\\]b][c]] "),
         ("", r"[[a\\\\]b "),
+        ("", "[[a][b "),
+        ("", "[[a][*b* "),
+        ("", "[[a][b]c "),
     ];
     let fastest = |text: &str| -> Duration {
         (0..5)

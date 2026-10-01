@@ -1,0 +1,1200 @@
+x [[]]b]] y	
+x [[a\b[[\[\[]] y	[[\[\[]]\[\[
+x [[a[][b]]]] y	
+x [[[]\[b[]] y	
+x [[]aa[]ab\aab]] y	
+x [[a\\aa[a[b]]] y	
+x [[]] y	
+x [[a\b[abb]] y	
+x [[[a]b[[\]] y	
+x [[[[\]] y	
+x [[][a\]]b\[]] y	
+x [[aab]a]b]] y	
+x [[b[[]a\a[[b]] y	[[b]]b
+x [[aa[\[[ab]] y	[[ab]]ab
+x [[][[[b]]bbb[]] y	[[b]]b
+x [[[][\aa[[]] y	
+x [[[b[b]a]\b[]] y	
+x [[\ba]] y	[[\ba]]\ba
+x [[[bb[a[ba\b]] y	
+x [[]]a]]ba[]] y	
+x [[[]\][]] y	
+x [[a\aba[b]]b[[]] y	
+x [[]b[\a]] y	
+x [[b[\b[]]a[]] y	
+x [[\b]] y	[[\b]]\b
+x [[a\[[]]a\b][]] y	
+x [[]a\[[[]]a[\]] y	
+x [[b[\b[\b]] y	
+x [[\a]] y	[[\a]]\a
+x [[b[b]bb]] y	
+x [[[[\]\a\[b\]]] y	[[\]\a\[b\]]]\]\a\[b\]
+x [[aa]] y	[[aa]]aa
+x [[[]]aa]]] y	
+x [[\\b]a\]a[\]] y	
+x [[]\a\]] y	
+x [[[abba[b\b]] y	
+x [[]][a\\]b\]] y	
+x [[[\]a\]] y	
+x [[]bab[]] y	
+x [[[\a]]] y	[[\a]]\a
+x [[a[[]] y	
+x [[]]] y	
+x [[[]b]bb]\]] y	
+x [[]b\bb]]]a]]] y	
+x [[a\[]]]] y	[[a\[]]a\[
+x [[a[\][a\]\bab]] y	
+x [[][]\a][\b\ab]] y	
+x [[[[a\\\\a]] y	[[a\\\\a]]a\\\\a
+x [[[\]] y	
+x [[[[a]a]] y	
+x [[a]b\]b[a]] y	
+x [[bba]a\[[\]]] y	
+x [[[b]\bb[ab\b]] y	
+x [[baa[][a[\[b]] y	
+x [[]]]] y	
+x [[]a]] y	
+x [[a\]a]] y	[[a\]a]]a\]a
+x [[\a]b[]] y	
+x [[bb\[aab[b]] y	
+x [[\]]] y	[[\]]]\]
+x [[\]ab]]] y	[[\]ab]]\]ab
+x [[\]\]\]b\b\\]] y	[[\]\]\]b\b\\]]\]\]\]b\b\\
+x [[b[b]] y	
+x [[b\]][b]b[b]] y	[[b\]][b]b[b]]b\]
+x [[[\b\ba]]] y	[[\b\ba]]\b\ba
+x [[b[\b]] y	
+x [[\][]] y	
+x [[a]\b]b]] y	
+x [[[][]] y	
+x [[bb[][a]ba]]] y	
+x [[baba]] y	[[baba]]baba
+x [[a]] y	[[a]]a
+x [[[b[]\[]]] y	
+x [[ba\\]] y	[[ba\\]]ba\\
+x [[[\\]bb\]ba]] y	
+x [[a]]\[a]]\]\[]] y	[[a]]a
+x [[a]\]] y	
+x [[bba[babaa]] y	
+x [[\b]b\b[a]\[]] y	
+x [[bb\]b]] y	[[bb\]b]]bb\]b
+x [[[]ba\]a[\b]] y	
+x [[a\[b\]] y	
+x [[abb]]a\b\[b]] y	[[abb]]abb
+x [[aa\aab]]] y	[[aa\aab]]aa\aab
+x [[aaa]\[]\\b]]] y	
+x [[a\\]b]] y	
+x [[[ab]] y	[[ab]]ab
+x [[\]] y	
+x [[b]a[]]b]] y	
+x [[a\]aabb[aa[\]] y	
+x [[]a[]]] y	
+x [[a[ab\\][a\\[]] y	
+x [[aa]a]aa]b]] y	
+x [[ba[b\[\[]]] y	
+x [[\\][aabb\\]] y	[[\\][aabb\\]]\\
+x [[a\]] y	
+x [[bbb\b]] y	[[bbb\b]]bbb\b
+x [[a]\aa[]] y	
+x [[\[]a\bb\\aa]]] y	
+x [[][\b]b[a]] y	
+x [[]\aaa]] y	
+x [[\\aba]\]] y	
+x [[[\][a]b\[[a]] y	[[a]]a
+x [[]a]\]b]ba\]] y	
+x [[[a[a]b\]]] y	
+x [[[b[b[b\]\bb]] y	
+x [[][ba]] y	
+x [[aa]\\]] y	
+x [[aa[][b][b\\]] y	
+x [[\a[[b[[a[]] y	
+x [[[b]bb\]ab]] y	
+x [[[]ab\[a]] y	
+x [[[a\\]a[[]ba]] y	
+x [[]a\\]]] y	
+x [[ba[b]]\\]ba]] y	
+x [[bbb[][\]b]] y	
+x [[\[baa]]] y	[[\[baa]]\[baa
+x [[\]ba[\\]] y	
+x [[\]\]] y	
+x [[\aab[]] y	
+x [[\b]ab\a\]bb]] y	
+x [[aab[b\[[aa[a]] y	
+x [[][]] y	
+x [[a]b]] y	
+x [[[aa]]] y	[[aa]]aa
+x [[ab]] y	[[ab]]ab
+x [[\\]]b[a\b[ab]] y	[[\\]]\\
+x [[a\b]]bab]] y	[[a\b]]a\b
+x [[a\\[a\abab[a]] y	
+x [[]a]][]] y	
+x [[[\bb]] y	[[\bb]]\bb
+x [[a]][a]] y	[[a]]a
+x [[[b[a]\\b[b]] y	
+x [[[[]b[[ab][]] y	
+x [[b[b[a][[]b]] y	
+x [[a\[b]] y	[[a\[b]]a\[b
+x [[a\a\\aab]] y	[[a\a\\aab]]a\a\\aab
+x [[[a[]baabab]] y	
+x [[b[b[[[\\b]] y	[[\\b]]\\b
+x [[a\b[b]ab\\b\]] y	
+x [[[\\]][[[\b]] y	[[\\]]\\[[\b]]\b
+x [[[]\[b]]b\a]]] y	
+x [[][a\\a]]] y	
+x [[ba]] y	[[ba]]ba
+x [[]\a\a]] y	
+x [[b]]\[b[a\\]\]] y	[[b]]b
+x [[b\\]\a[]] y	
+x [[[bb[\[]a]]]] y	
+x [[ab[]]] y	
+x [[[[[\[b[]] y	
+x [[[abb][]] y	
+x [[b\]] y	
+x [[]\\\a\b[][b]] y	
+x [[ab[\]a[]]]b]] y	
+x [[b[aa]]\[]] y	
+x [[[\[b]] y	[[\[b]]\[b
+x [[[[[b\b]]] y	[[b\b]]b\b
+x [[[b[[]\]ab[]] y	
+x [[[b]]] y	[[b]]b
+x [[]b[]b\\]]] y	
+x [[][]\b[ba]]]] y	
+x [[[\\[b[\]b]] y	
+x [[a[[]\[bba]a]] y	
+x [[\]a\[\b]] y	[[\]a\[\b]]\]a\[\b
+x [[]ab]]] y	
+x [[]\a\\]]] y	
+x [[[[]\b\]] y	
+x [[[]]a]] y	
+x [[[\\]b[ba]]] y	
+x [[a\]aa]\[]] y	
+x [[\][\\\]]] y	
+x [[\\]b]]] y	
+x [[b]]a[[bab[]]]] y	[[b]]b
+x [[a\\[[a[]\ab]] y	
+x [[]a[a]\[]ab]] y	
+x [[a[]b][[\[][[]] y	[[\[][[]]\[
+x [[a\[[]b\[]]] y	
+x [[]\a]\bbbb]]] y	
+x [[bba\]]] y	[[bba\]]]bba\]
+x [[]]aa\]b]] y	
+x [[b]]b[[\\]] y	[[b]]b[[\\]]\\
+x [[b[a]b]] y	
+x [[[[]]] y	
+x [[b]\]] y	
+x [[]]a[bbbab[\a]] y	
+x [[b]aaa]] y	
+x [[b]a\aa]]] y	
+x [[b]] y	[[b]]b
+x [[ab[[[]]ab\]] y	
+x [[a[a\]] y	
+x [[ab[b[a]]b[]] y	
+x [[\]a]]] y	[[\]a]]\]a
+x [[[a]\\babb]] y	
+x [[]ba[ab[]a\]] y	
+x [[[]] y	
+x [[a[]] y	
+x [[[\[[a[aa]a]]]] y	
+x [[[]]\\a\[]] y	
+x [[a]a][]]] y	
+x [[\[a[[[][]a]] y	
+x [[\\]] y	[[\\]]\\
+x [[a\[\ab\[\b]] y	[[a\[\ab\[\b]]a\[\ab\[\b
+x [[\\]\]] y	
+x [[\\][]] y	
+x [[\\aaa\]\bab\]] y	
+x [[]aa[ab]] y	
+x [[b[a]] y	
+x [[b[bb[bbab\]] y	
+x [[]\\\[\a[\[b]] y	
+x [[\a[[]] y	
+x [[[]aa\a[\]] y	
+x [[[[]bb]] y	
+x [[bb\\]aba\]] y	
+x [[[\ab]a\a]ab]] y	
+x [[a]b[]a]ab\]]] y	
+x [[[]b]\aa]b]] y	
+x [[][b]] y	
+x [[b\]]] y	[[b\]]]b\]
+x [[[b[ab\a][\][]] y	
+x [[a[a]bb\[a]] y	
+x [[\a[[[]aa\[]] y	
+x [[[\a[]a[\ba\[]] y	
+x [[]]\]] y	
+x [[][ba\\ba]] y	
+x [[ba[bb]] y	
+x [[b[ab[\]] y	
+x [[b[\\ab[a\]] y	
+x [[[[a[]] y	
+x [[]]\[][\[baab]] y	
+x [[\ab]]\]] y	[[\ab]]\ab
+x [[]a]b]\b]]] y	
+x [[a\b][[a]aa]] y	[[a\b][[a]aa]]a\b
+x [[aaa]] y	[[aaa]]aaa
+x [[\a[\]aa]bb]] y	
+x [[[\[\[]]] y	[[\[\[]]\[\[
+x [[\[[a]][]ba]] y	[[a]]a
+x [[]bb]aa][b\\]]] y	
+x [[aabb]bb]] y	
+x [[a\\][a]]\]] y	[[a\\][a]]a\\
+x [[\][[[a]] y	[[a]]a
+x [[[[[\a[]] y	
+x [[[\]\\]] y	[[\]\\]]\]\\
+x [[\bba\[bb[]] y	
+x [[[bb]] y	[[bb]]bb
+x [[[b]] y	[[b]]b
+x [[b[aa[aab]]] y	
+x [[[[aaba][b]] y	[[aaba][b]]aaba
+x [[\[]] y	[[\[]]\[
+x [[a\b[[\a\b]] y	[[\a\b]]\a\b
+x [[b[b\a\]]] y	
+x [[b]\]a\][\a]] y	
+x [[]\a]] y	
+x [[[[\[]] y	[[\[]]\[
+x [[]a\]] y	
+x [[\\b[aa]] y	
+x [[b\aa[b][[]] y	
+x [[[\[[aa\\b]] y	[[aa\\b]]aa\\b
+x [[bba[a]a]\\]]] y	
+x [[\[\a\\\]] y	[[\[\a\\\]]\[\a\\\
+x [[]][ba]]]] y	
+x [[\\ba\b]a\[aa]] y	
+x [[b[[[b]] y	[[b]]b
+x [[b[]\]]] y	
+x [[aa]]ba\abb\]] y	[[aa]]aa
+x [[\b[\a\ba[]] y	
+x [[aab]\[[\\a]]] y	[[\\a]]\\a
+x [[]]a[]] y	
+x [[a\ba]\]a\b\]] y	
+x [[]b[]] y	
+x [[]\baa[\]] y	
+x [[[a]ba[[[]a]] y	
+x [[]a\a\]b[b[\[]] y	
+x [[bbb\b[[[[[]] y	
+x [[]\[]b]]]\]]] y	
+x [[a\b]] y	[[a\b]]a\b
+x [[aa][]\]babb[]] y	[[aa][]\]babb[]]aa
+x [[]]b\b[\]b]a\]] y	
+x [[]a[b]] y	
+x [[]bbb]]b]] y	
+x [[]\]]]\aa]] y	
+x [[\[][\b\]bb\]] y	[[\[][\b\]bb\]]\[
+x [[a\a[]]a[aa\]] y	
+x [[[b][bb\ab]] y	[[b][bb\ab]]b
+x [[][ab\]] y	
+x [[\[b[\b]\[\a]] y	
+x [[bbaba\[bb]] y	[[bbaba\[bb]]bbaba\[bb
+x [[b[[\ab[]] y	
+x [[\b[a\b[aab]]] y	
+x [[aaaa]]] y	[[aaaa]]aaaa
+x [[b[]\]] y	
+x [[a\[]] y	[[a\[]]a\[
+x [[]a]b]] y	
+x [[[b\ab[\[]] y	
+x [[]aa]]bb]] y	
+x [[[a]aa]] y	
+x [[\[[bb]] y	[[bb]]bb
+x [[\a[b\]] y	
+x [[\aba]] y	[[\aba]]\aba
+x [[b\[[\]] y	
+x [[]b]] y	
+x [[[]aa]abb[]a]] y	
+x [[a[][]] y	
+x [[[aa[a[]]\a]]] y	
+x [[bab]b]] y	
+x [[[[a]\][\]] y	
+x [[]\]a]b]][a]] y	
+x [[\aab\a\b]] y	[[\aab\a\b]]\aab\a\b
+x [[]\[aaa[aa]]] y	
+x [[\\a\b\b\b]] y	[[\\a\b\b\b]]\\a\b\b\b
+x [[bab\aa]] y	[[bab\aa]]bab\aa
+x [[a]b\a[a\b][]] y	
+x [[bbabba]] y	[[bbabba]]bbabba
+x [[[\[b]b]] y	
+x [[[ba\]] y	
+x [[a]\a][]] y	
+x [[\][[\]a\\]] y	[[\]a\\]]\]a\\
+x [[][[]a]ab]] y	
+x [[abbb]] y	[[abbb]]abbb
+x [[a\]b[\]] y	
+x [[\a\b]] y	[[\a\b]]\a\b
+x [[\\b]\ba[b]] y	
+x [[\][]]]] y	
+x [[a]]\]]]] y	[[a]]a
+x [[a[[b\\b]] y	[[b\\b]]b\\b
+x [[[]\[]]] y	
+x [[\\\]] y	[[\\\]]\\\
+x [[[][[a]]][]\[]] y	[[a]]a
+x [[b\\b]]\]] y	[[b\\b]]b\\b
+x [[a][b]] y	[[a][b]]a
+x [[\[a\\b[[\]] y	
+x [[]\baa\\\b]]] y	
+x [[baabb[[\ba]] y	[[\ba]]\ba
+x [[\a[[\aaa[]]] y	
+x [[]a[[a[]] y	
+x [[b\b]]] y	[[b\b]]b\b
+x [[[[]] y	
+x [[[][\\aa]] y	
+x [[[a\]ba]] y	[[a\]ba]]a\]ba
+x [[b\[\\b]] y	[[b\[\\b]]b\[\\b
+x [[bb[a[]] y	
+x [[[b]a\]ab[]] y	
+x [[b[b[a\][]] y	
+x [[baaa]] y	[[baaa]]baaa
+x [[[]]a\bbbbbb]] y	
+x [[]]b]]] y	
+x [[]\bba]]]] y	
+x [[\b\\]]b\[]] y	[[\b\\]]\b\\
+x [[]b\]]] y	
+x [[]ba]]] y	
+x [[a\bbaab]] y	[[a\bbaab]]a\bbaab
+x [[\b\aa]\]\]] y	
+x [[b]b\[b]][abb]] y	
+x [[\[aab]] y	[[\[aab]]\[aab
+x [[\a]]] y	[[\a]]\a
+x [[a]]] y	[[a]]a
+x [[\bb[[]] y	
+x [[[bb\[a][\a\]] y	[[bb\[a][\a\]]bb\[a
+x [[]a\ba\aba]b]] y	
+x [[[[][]] y	
+x [[]b\\a]] y	
+x [[[]\]a[]a\]] y	
+x [[[]]\]b\]]\a]] y	
+x [[[aa]]]]] y	[[aa]]aa
+x [[]]a]a[aaaaa]] y	
+x [[\[[a[\[[]b]]] y	
+x [[[[[]b]] y	
+x [[[\]\[b]\]] y	
+x [[b\a\]]] y	[[b\a\]]]b\a\]
+x [[]\b[a\a\\]b]] y	
+x [[[]\b\b[[]bb]] y	
+x [[b[\]]ba]]] y	
+x [[b[]]] y	
+x [[a[\a[]] y	
+x [[[\[]] y	[[\[]]\[
+x [[a[babb]a\[]] y	
+x [[[b[]\a\]] y	
+x [[a[\[aab]a[]] y	
+x [[\b\]b[]] y	
+x [[\b\]b[aab]] y	
+x [[[]\\]] y	
+x [[aab]] y	[[aab]]aab
+x [[b\]]aa[]]]] y	
+x [[]b[ba\]b\b]] y	
+x [[\\\bb[]] y	
+x [[][[]ab]]\\]] y	
+x [[][]\[][b]]] y	
+x [[][[ab\a]b\\]] y	
+x [[a]]\a]] y	[[a]]a
+x [[[\a]]a[]\ab]] y	[[\a]]\a
+x [[]b[b\]\\]a[]] y	
+x [[]aa[]] y	
+x [[a]aa[[\b[]] y	
+x [[[]\a]aa\\\]] y	
+x [[[]]] y	
+x [[[[]\\]] y	
+x [[]b\]] y	
+x [[b[]a]b]] y	
+x [[]\[]]] y	
+x [[b]][]] y	[[b]]b
+x [[[[[]a]a\[[a]]] y	[[a]]a
+x [[\\[[\b[\[[\]] y	
+x [[\\]a\a][aa\]] y	
+x [[b[[]] y	
+x [[aa[a]b\bab]] y	
+x [[\ba]]bba\]] y	[[\ba]]\ba
+x [[[b[[]][b\]] y	
+x [[\aaaaaa[]] y	
+x [[]]][]aa]b]] y	
+x [[b[]] y	
+x [[ab]ab\]a]] y	
+x [[a[bb]][]] y	
+x [[]b\baaaa[]] y	
+x [[ab[]aa]]] y	
+x [[[a][]] y	
+x [[bb[[a[[aa\b]] y	[[aa\b]]aa\b
+x [[\ab\]\]] y	
+x [[b]]ab][bb[]] y	[[b]]b
+x [[\a]\]]\\]\\\]] y	
+x [[]ab\a\[a]] y	
+x [[[b]\]]] y	
+x [[\a[aa[ba[b[a]] y	
+x [[a]a]] y	
+x [[a[aab[abb]] y	
+x [[[\a]] y	[[\a]]\a
+x [[\[bb\b[[\\]] y	
+x [[\b]]] y	[[\b]]\b
+x [[]\[aaa]] y	
+x [[[a[]]\\]] y	
+x [[a\a\\]]] y	[[a\a\\]]a\a\\
+x [[b]a[][\\b]]] y	
+x [[[]\]] y	
+x [[[ababa]]]]] y	[[ababa]]ababa
+x [[]][\\[\a]] y	
+x [[]ba\a]aaa]] y	
+x [[bab]\\[[]] y	
+x [[abb[a]]] y	
+x [[[[abaa]]]] y	[[abaa]]abaa
+x [[b\[]a]b]] y	
+x [[\[\b\\]][[]] y	[[\[\b\\]]\[\b\\
+x [[]b\ba\]] y	
+x [[\[b[]] y	
+x [[a\a[]]]]] y	
+x [[[\aa\]] y	
+x [[a]\b\]] y	
+x [[\\\\b][a]] y	[[\\\\b][a]]\\\\b
+x [[b[][bb[]] y	
+x [[a]bab\]] y	
+x [[]a]]] y	
+x [[a\a[]b]] y	
+x [[][bb]] y	
+x [[[]ab]\]b[]] y	
+x [[a]a[b]] y	
+x [[\[\\\[]] y	[[\[\\\[]]\[\\\[
+x [[]\\]] y	
+x [[[][\\[bb]]] y	
+x [[][ba[a[b]] y	
+x [[][b\\[]] y	
+x [[\]ba[baba\]] y	
+x [[[\a[aaa][]] y	
+x [[][\b[[][]b\a]] y	
+x [[\a]]\a\a[bb]] y	[[\a]]\a
+x [[[bb][b[]] y	[[bb][b[]]bb
+x [[\\ab[]ab]] y	
+x [[][a]] y	
+x [[\]bba[\b][]] y	
+x [[a\b]\b]]a\\[]] y	
+x [[][[\a[b[]a[]]] y	
+x [[]ab]] y	
+x [[\[[]] y	
+x [[]\a[\b\]a]]] y	
+x [[a[\b]\b\\a[a]] y	
+x [[b\\bb\]] y	
+x [[ba\ab][]\]] y	[[ba\ab][]\]]ba\ab
+x [[]]\]]b[]] y	
+x [[a]\\ba]] y	
+x [[\\bb][]] y	
+x [[bba]] y	[[bba]]bba
+x [[bb\]b\b\]] y	
+x [[]]\a]]\][]] y	
+x [[[\ba[]] y	
+x [[[a]b]]b]] y	
+x [[[a\[\]] y	
+x [[aabb]] y	[[aabb]]aabb
+x [[ab\]] y	
+x [[][[a\a]] y	[[a\a]]a\a
+x [[[[a][\]] y	[[a][\]]a
+x [[[b\][]] y	
+x [[bb]] y	[[bb]]bb
+x [[[[[babba]ab]] y	
+x [[b][]] y	
+x [[]\\[]] y	
+x [[[[[]] y	
+x [[[[]]a][\[]] y	
+x [[\[]bb]] y	
+x [[\a]\\]]] y	
+x [[\aa]] y	[[\aa]]\aa
+x [[]b\b[a[b]a\b]] y	
+x [[]\[b[\b]] y	
+x [[]b\]bbb\]]]] y	
+x [[b]b]] y	
+x [[bb[\a[aa[]] y	
+x [[aa]]a]] y	[[aa]]aa
+x [[\\b\b\]] y	
+x [[]b]\\]] y	
+x [[b[\][aa]] y	
+x [[bbb]b[b\[]] y	
+x [[b\\]]] y	[[b\\]]b\\
+x [[]b][[]\[[]] y	
+x [[]a\b][]b]\[]] y	
+x [[[bb[\b[]a\b]]] y	
+x [[[a[aa]] y	
+x [[\\]b[b\a][]] y	
+x [[[]a\b]\a]\[]] y	
+x [[\ba\[b]] y	[[\ba\[b]]\ba\[b
+x [[[\a\]] y	
+x [[[abb\bba[aa[]] y	
+x [[]a[]b[][]]]] y	
+x [[[aa\a]] y	[[aa\a]]aa\a
+x [[\][]b\[ab]] y	
+x [[[]bb[[]] y	
+x [[]][\[]\]]] y	
+x [[[a\b]] y	[[a\b]]a\b
+x [[b[\]] y	
+x [[]]b[\\]] y	
+x [[]bb[a\b[[ab\]] y	
+x [[b\[]] y	[[b\[]]b\[
+x [[[[]\]b[a]] y	
+x [[]]\\]]] y	
+x [[aba\b]] y	[[aba\b]]aba\b
+x [[a][a]] y	[[a][a]]a
+x [[baa\[]] y	[[baa\[]]baa\[
+x [[][]]\]]] y	
+x [[]a[a[\ba[ba]] y	
+x [[[a[[]a[]] y	
+x [[\[\]] y	
+x [[aaa][]] y	
+x [[][\]]] y	
+x [[\b\a[b\][]] y	
+x [[b]a]] y	
+x [[ab]]ab]] y	[[ab]]ab
+x [[ab]\b]] y	
+x [[[bb]]] y	[[bb]]bb
+x [[][[[]] y	
+x [[ba[[abb]] y	[[abb]]abb
+x [[aab\\\a][]] y	
+x [[\]b[a]aa\\[]] y	
+x [[\]aab[]] y	
+x [[a[]\\]aa]] y	
+x [[abb\aa[]][]]] y	
+x [[a]]a[bba[]] y	[[a]]a
+x [[ba\a]aba]] y	
+x [[\[a[\aa[]] y	
+x [[\b][a[\bb[[]] y	[[\b][a[\bb[[]]\b
+x [[\[]b]] y	
+x [[a][]]\aab]]] y	[[a][]]\aab]]a
+x [[[]\\a]b[]][]] y	
+x [[a[]bab]]]\a]] y	
+x [[][b[[a\a]]] y	[[a\a]]a\a
+x [[]\\]a\]] y	
+x [[bb[[\]]] y	[[\]]]\]
+x [[abab]] y	[[abab]]abab
+x [[b\\]] y	[[b\\]]b\\
+x [[]]a[[b[]]]a]]] y	
+x [[aa[a[a][a[\]] y	
+x [[b\a\a\\b]] y	[[b\a\a\\b]]b\a\a\\b
+x [[[\aa]\a\]] y	
+x [[\ab]] y	[[\ab]]\ab
+x [[b[[ba]abab]] y	
+x [[\\]\[a[[]] y	
+x [[[bba[aab\aa]] y	
+x [[aaa\]]]] y	[[aaa\]]]aaa\]
+x [[][\]a\][\]b]] y	
+x [[]\]] y	
+x [[b\]aa\][]] y	
+x [[\]]]]] y	[[\]]]\]
+x [[[b[]ba]] y	
+x [[baaabb[[\\a]] y	[[\\a]]\\a
+x [[\\\b][b[a]] y	[[\\\b][b[a]]\\\b
+x [[aabaa\aba]] y	[[aabaa\aba]]aabaa\aba
+x [[a[[b[a][a]]] y	
+x [[\a\][\a]]] y	
+x [[\ab\abba]] y	[[\ab\abba]]\ab\abba
+x [[]b]\][]]]] y	
+x [[bb]]] y	[[bb]]bb
+x [[a]]a]\][ab]]] y	[[a]]a
+x [[b[\\\a]] y	
+x [[]\b][\][]] y	
+x [[[]b[]] y	
+x [[]\ab[\][]] y	
+x [[]\\\b]\a]] y	
+x [[bbbb]] y	[[bbbb]]bbbb
+x [[]]\\ba[\]a]] y	
+x [[\b]aa]] y	
+x [[a][b]b]ab[[b]] y	[[a][b]b]ab[[b]]a
+x [[\]aa[]]] y	
+x [[][a]\]\a[]] y	
+x [[b\[b\\]] y	[[b\[b\\]]b\[b\\
+x [[][][\aa[[\a]] y	[[\a]]\a
+x [[[\]ab]] y	[[\]ab]]\]ab
+x [[b]]ab]b][][]] y	[[b]]b
+x [[aa][\b]] y	[[aa][\b]]aa
+x [[\\ab[]][a[b]]] y	
+x [[b[]a\\bba]][\]] y	
+x [[]aa\][\][bba]] y	
+x [[[a[]a[\\b][]][b\]ab][a\]] y	
+x [[b][\\b]ba\\\[b]] y	[[b][\\b]ba\\\[b]]b
+x [[]bbbb]][]]] y	
+x [[a][\b\[][\\aa[[]]\]] y	[[a][\b\[][\\aa[[]]a
+x [[][\][aa]] y	
+x [[\[[]]][b]aaab]b\b]] y	
+x [[a\baa][\][]b\]a]] y	[[a\baa][\][]b\]a]]a\baa
+x [[\b\ab][\a[a]] y	[[\b\ab][\a[a]]\b\ab
+x [[baa\\]][\[[\bb\\b\]] y	[[baa\\]]baa\\
+x [[[][[][aba[\\]\ab\a]] y	
+x [[[]a]\[ab[\]][b]ab]b]]] y	
+x [[]ba\a]a][[a[]a[ba]]] y	
+x [[b\[b[][]] y	
+x [[b][b\abbb]\][]] y	[[b][b\abbb]\][]]b
+x [[b\b][[a]a]] y	[[b\b][[a]a]]b\b
+x [[][[][]\a]a]a[]a]]] y	
+x [[[[]b][ba[aa]] y	
+x [[aab][ba[][\]]]]]] y	[[aab][ba[][\]]aab
+x [[baba]][a]] y	[[baba]]baba
+x [[\\aba[b\][\b]] y	
+x [[]][aa]]ba][\b\b\b]] y	
+x [[\abbb][\\bb[]] y	[[\abbb][\\bb[]]\abbb
+x [[][b]]]] y	
+x [[[]bba]]]a][[bb\\][a\]] y	[[bb\\][a\]]bb\\
+x [[\\aaa[[bba][[\ab]]bb\[[]] y	[[bba][[\ab]]bba
+x [[[a[]b\]]]][b[aa[\]] y	
+x [[]b]]]][]abab\a]] y	
+x [[b[b\b\[aab][bb[]] y	
+x [[baa][b\]] y	[[baa][b\]]baa
+x [[a[bbab]][a[\[[][a]] y	
+x [[][a[[\\]b]aa]] y	
+x [[[[\\\\\]a][\ab\]] y	[[\\\\\]a][\ab\]]\\\\\]a
+x [[b\ba\ba]a[\[][]] y	
+x [[[\][b\b[[aa\]b]]] y	[[aa\]b]]aa\]b
+x [[a][]] y	
+x [[b][[\[]a]aa]] y	[[b][[\[]a]aa]]b
+x [[ba]\a[\[b\][a[\[]bab\]]b]] y	
+x [[]b[][][\]a[aabaa\]] y	
+x [[\[a][\\][]ab]] y	[[\[a][\\][]ab]]\[a
+x [[[]][b]\a\[[[][][\a[b]]b[]] y	
+x [[]\b[ba\[b]\\][\[b][[]ba]] y	
+x [[\][[]] y	
+x [[aa[\][[[a[a[]\]] y	
+x [[\][][]] y	
+x [[[]abab]\][][\b]] y	
+x [[b][[\b\[[]]ba\]]] y	[[b][[\b\[[]]b
+x [[]\ab]]][[]a]]] y	
+x [[\[]baab\a[aa][\b\\]bba[\b]] y	
+x [[ba\]\a][\b\\]] y	[[ba\]\a][\b\\]]ba\]\a
+x [[a\bb[\\][a]] y	
+x [[b][ab[a[\[][b\a][\a]] y	[[b][ab[a[\[][b\a][\a]]b
+x [[\]a][\a\[a[]a]] y	[[\]a][\a\[a[]a]]\]a
+x [[][]b][bab\]] y	
+x [[b\][]]a[a\]][]] y	
+x [[a]]]bb\\]]]b][[b]]] y	[[a]]a[[b]]b
+x [[[a[\a[a[[][b]] y	
+x [[]]][\\b]a\[a][ab]] y	
+x [[]][ab[a\b[[][]\]] y	
+x [[\[ba[\a]][ba]b\\ba]]] y	
+x [[aba[\ab][ba\\bab]]a]] y	
+x [[]b\a[aaa][]] y	
+x [[[][abb\aa\\a]] y	
+x [[\aab[][][\\]aa[]\b]] y	
+x [[a\b\a\[[a]]b][]b]b[a]\]] y	
+x [[][\]\[ab][]] y	
+x [[[aa\[[b][]baa\]\\]\]] y	
+x [[aa\][aa]\[]] y	
+x [[][\]ba]]] y	
+x [[]]][a]] y	
+x [[]baa][[b]b\][\]ab]] y	
+x [[]a\\aaab][a]][]a]aaaa\\]] y	
+x [[ba][]bab]] y	[[ba][]bab]]ba
+x [[ab]]a\b][]] y	[[ab]]ab
+x [[b[[ab\b][[][]ab[b]]] y	[[ab\b][[][]ab[b]]ab\b
+x [[][b]ba\]b]\]]] y	
+x [[b\[\a[\[b[]][\\]] y	
+x [[a][][]\]] y	[[a][][]\]]a
+x [[]b]][]a[]] y	
+x [[\]bb\][a]][]ba]] y	
+x [[[a]\b][\]b]] y	
+x [[babb\baa\[[a][\[\]] y	
+x [[]][[][b][ab]] y	
+x [[a]]a[[][]]b[a]] y	[[a]]a
+x [[[[aa\[][\ab][]]]] y	[[aa\[][\ab][]]aa\[
+x [[]]\][\]] y	
+x [[]\b\]][][b]a\]b]]] y	
+x [[\\\aaba]]]b[][b[b]a\\][a[]] y	[[\\\aaba]]\\\aaba
+x [[][[b]\\a]\b][b]] y	
+x [[aaaabb][\a]]] y	[[aaaabb][\a]]aaaabb
+x [[\abab][\\b]b\aa]ba]] y	[[\abab][\\b]b\aa]ba]]\abab
+x [[a[a]a[][]\[]] y	
+x [[][aa[]] y	
+x [[][]aba][a[a]][\][[a[]] y	
+x [[\[[]][ba[b\]] y	
+x [[aabb\][]bba][\]] y	
+x [[\\]a[a[[a[]][ab]b[[\]]\[]] y	
+x [[][bbb[a]] y	
+x [[\\abaab][[aa[\ab[b\]] y	[[\\abaab][[aa[\ab[b\]]\\abaab
+x [[a\\b][]b][[[]] y	[[a\\b][]b][[[]]a\\b
+x [[ab[b\a\\]][[[][\bb[]] y	
+x [[a\[a[[][]] y	
+x [[\\\[a\]\[[[][a\abaaa]] y	
+x [[bb\\\[[]][]a]\ab]]] y	
+x [[]bbba]aa][]a]\\a]] y	
+x [[\]][\b[]]\][b]b\baabb[b]] y	[[\]][\b[]]\]
+x [[][\ba][\ab\]\[[a]\]] y	
+x [[\[bbbbb\a][\[[a[]a]aa]]] y	[[\[bbbbb\a][\[[a[]a]aa]]\[bbbbb\a
+x [[\[\\]a][b]] y	
+x [[[[b]ab\[b\][a\[a[]] y	
+x [[]][b][[]ba[[]] y	
+x [[\a[b[\][aa]][\\b\a[b]] y	
+x [[][\[[[ba\bb]][[\\[\[a[b\]] y	
+x [[bb]\]a[a\[][\]ba[b]] y	
+x [[][a\a]b[]] y	
+x [[a[aaaab]][\\[[ba]b]] y	
+x [[a\a\a\\][a\\a]] y	[[a\a\a\\][a\\a]]a\a\a\\
+x [[a]]]abbab][][b]a[a]b\]] y	[[a]]a
+x [[][b\]\]a]] y	
+x [[]]][[\[a]a\]\]ab]] y	
+x [[][ab[ab[]\b]] y	
+x [[]]][]] y	
+x [[ab[\b][\\][][b[][b\a]] y	
+x [[]]a]bb\][aa[][][a[[\[]\]] y	
+x [[a][\]] y	[[a][\]]a
+x [[]\\\aaa\a]][ab]] y	
+x [[b]bb\ba][\]] y	
+x [[ba][\]bbb[\ba[]]] y	[[ba][\]bbb[\ba[]]ba
+x [[[[ba[[][b]]\]] y	
+x [[\a\[b\]]\\a][a[\]ab]\]b]] y	
+x [[a\]b\][]]][\[\b[[\aba]] y	[[\aba]]\aba
+x [[a[a[[][\\]a]] y	
+x [[bbb\a[abb[[][\a[]a]a]] y	
+x [[\][\[]\][]] y	
+x [[a\]a\[][][][[a]]]]a]] y	[[a\]a\[][][][[a]]a\]a\[
+x [[[a[]]]\][]\b[[]][a]] y	
+x [[a]b]\]a\a][\[]\\ab[a]] y	
+x [[b\b]][]][]]bb[]] y	[[b\b]]b\b
+x [[]b[a[\]\aa]][\aa]\b[]] y	
+x [[\\[b][[aa[ab]aaa]] y	
+x [[b]\\][\a[bbbb]] y	
+x [[a[ab\\ab[[[b][a]b]bb]b]] y	[[b][a]b]bb]b]]b
+x [[\aa]]][[]b[b][a]] y	[[\aa]]\aa
+x [[a[][a[b[\bba[a\]] y	
+x [[ba\[a]a]]][b[[b]]][]] y	[[b]]b
+x [[[]\a[]\\b\][][]]b]ab[\\]] y	
+x [[a]b[a[a[[[\\][[a\]]aa\b]] y	[[\\][[a\]]\\
+x [[]\a\][aaa\ab]] y	
+x [[\bbaaa]]ab][b]] y	[[\bbaaa]]\bbaaa
+x [[a][\a][][aa]b[]] y	[[a][\a][][aa]b[]]a
+x [[b\ba\\[bb\\][[b]]a[[\a\]] y	[[b]]b
+x [[\a]\ab]\\\\\][[\[][b]b][b]] y	[[\[][b]b][b]]\[
+x [[[b[b][]baab\]ab]] y	
+x [[\b[[[b[\b[[][[b[\]] y	
+x [[[][[\bb\a[][][a\]] y	
+x [[\\]][aa\]] y	[[\\]]\\
+x [[\[\]b][aba]\][baab\bb\]][[]] y	[[\[\]b][aba]\][baab\bb\]]\[\]b
+x [[]]\b[[\bb][]]aa[b\a[]] y	[[\bb][]]aa[b\a[]]\bb
+x [[\\]b][b]][]b]b]\]] y	
+x [[[\[a][b[]] y	[[\[a][b[]]\[a
+x [[b\a[\[]][][[[a]] y	[[a]]a
+x [[][\a][b]a\b]a]\b]] y	
+x [[][a][]a[b]] y	
+x [[b\\abb\bb[][]] y	
+x [[]]]\]\[bb][][[ab[]abaa]] y	
+x [[\b[b][[]] y	
+x [[\\ab[[[\][b]] y	
+x [[[b]aba]][ba[]][[[\]] y	
+x [[[][b]\b]] y	
+x [[a\a[\\a]\\][]]bba]ba\]] y	
+x [[[\[][[aa\\a\b]] y	[[\[][[aa\\a\b]]\[
+x [[\[[\b\b\][\bb[a]a[[]] y	
+x [[a[][[b]]bb]b]a]a]] y	[[b]]b
+x [[[\b][]a]] y	[[\b][]a]]\b
+x [[\b][[[[aa[]a]] y	[[\b][[[[aa[]a]]\b
+x [[]\[][[b[a[\aa]]] y	
+x [[a][a\a][]]] y	[[a][a\a][]]a
+x [[[b[]]\\]\\[][ab]b]] y	
+x [[aa[\][]\]]][\\aa[\\a\b]] y	
+x [[b[[a[b]]\][a]b]a[ab[][]] y	
+x [[bb\a][\a]] y	[[bb\a][\a]]bb\a
+x [[aaab]a[bab\b][ab]]\bbba]] y	
+x [[[a]]]]\][\\a][\[[a]] y	[[a]]a[[a]]a
+x [[b\][aa[]] y	
+x [[\[\][[b\]] y	
+x [[]]aa]a\b][[aa][][[\]] y	[[aa][][[\]]aa
+x [[[b[a][b\[a]]] y	
+x [[\a\a\][a[[[a]] y	[[a]]a
+x [[[]a\[[b]b\a][bbaa\[[a[\[\]] y	
+x [[][b\]a]] y	
+x [[][[]]]a\\\]b][\[ab\\]] y	
+x [[b]aaba]][[[]a]a]a][[]] y	
+x [[b[\][\[[[][a]\[]] y	
+x [[[a\[[\\][]] y	
+x [[bb[]b[\b][[ab[b\b]a]] y	
+x [[a][a[[]\[bb]b]] y	[[a][a[[]\[bb]b]]a
+x [[][]aa\[[a\\][[]] y	
+x [[[]b][b][b][a[[a]b]a]a\]] y	
+x [[ba]][a[]]] y	[[ba]]ba
+x [[[\\[]\\]abb\][a\\]][\\[[[]]] y	
+x [[][]\[]][\b]b]] y	
+x [[\\a\][[]aa\a]] y	
+x [[][bba]]a][[]a]]] y	
+x [[ab[bba][]]] y	
+x [[[\a\ab[][]][a[[ab]] y	[[ab]]ab
+x [[\\][]][a]aa]]] y	[[\\][]][a]aa]]\\
+x [[\\[a\][bb]a]b]bb[[\]] y	
+x [[][ba[[[a\ba][]] y	
+x [[[b\\]\][a\a\]\a]]] y	
+x [[[ba\ab]]\][[\ab]\]] y	[[ba\ab]]ba\ab
+x [[\ab\][\b[]\a[]]] y	
+x [[][b[ba]]] y	
+x [[[]\][]ab]]a]]] y	
+x [[][b][b][b]][[[b\[a]]] y	[[b\[a]]b\[a
+x [[][b[ba[[aa[ba]] y	
+x [[\b[ab]]][b[\a\\]] y	
+x [[ab\[\][][\a\a[bbb\]] y	
+x [[][aaba\][]a][[b\[\[[\]] y	
+x [[][a]]\]b\b]\]] y	
+x [[[\][][b][]] y	
+x [[a[b][b[[[[bb][[\]]] y	[[bb][[\]]bb
+x [[\\b\\a][a[b][]b]]] y	[[\\b\\a][a[b][]b]]\\b\\a
+x [[\b[\[][a]]\\\[]] y	
+x [[]]aa]]\ab][ab\[[\[\]\]] y	
+x [[[bbaa][][a]]] y	[[bbaa][][a]]bbaa
+x [[baa]\][[[a]]] y	[[a]]a
+x [[ba\[][]a\]\]] y	[[ba\[][]a\]\]]ba\[
+x [[b[[][b]ab][\][[]] y	
+x [[][[a][a\[a\a[b]] y	[[a][a\[a\a[b]]a
+x [[b]][b\[]bb]\b]] y	[[b]]b
+x [[[\\[]\[ba\]a][]ab]] y	
+x [[[b[]a\a\[\][]baa[]] y	
+x [[ba]][bb[\[b]]] y	[[ba]]ba
+x [[]aa]b][[a]baa[]]] y	
+x [[ba\b]]][]\a\bababa[]] y	[[ba\b]]ba\b
+x [[[]\][]a[a]b][]] y	
+x [[\][a\]\[][\[]] y	
+x [[[a][b\]\abb]a]] y	[[a][b\]\abb]a]]a
+x [[][a\\a[a\ba][\\]a[a\aaba]] y	
+x [[b\[b][[]] y	[[b\[b][[]]b\[b
+x [[]]][[]bb][]] y	
+x [[\abb]][b][\baa\b[b]] y	[[\abb]]\abb
+x [[b\]][]] y	
+x [[a[ba[b]aa[ba][]]]] y	
+x [[b[b[]\ba\]][b[ab]a]] y	
+x [[\[[ba[a[][\b[]bb]] y	
+x [[b\\[]]]b][bba[b[\\a]] y	
+x [[aa][]][a[a\\]] y	[[aa][]][a[a\\]]aa
+x [[][[b]\b\\ab]] y	
+x [[[\a[]a[[[\][\\[b[\\b]] y	
+x [[a[\[\b]\][b]abba\]\a]]] y	
+x [[[a][\]] y	[[a][\]]a
+x [[[\b\[[][[a\][aa\b\[]] y	
+x [[]a[bb][\b[b]b]] y	
+x [[bbab]\aa][a]] y	
+x [[b\a\\baba][\]aa]]] y	[[b\a\\baba][\]aa]]b\a\\baba
+x [[]][\][aa][a]]] y	
+x [[\aa]bb[][[[\]b[bb][]] y	
+x [[[a][[b]bba][]] y	[[a][[b]bba][]]a
+x [[[]baa\\][]] y	
+x [[\ba][]a]ab]]\b[b]] y	[[\ba][]a]ab]]\ba
+x [[bb][[]b\][[]\ba[]] y	[[bb][[]b\][[]\ba[]]bb
+x [[]\][b]]] y	
+x [[a\ab]\[aa][a[]] y	
+x [[a]baa][a[[b]][]\aa]] y	[[b]]b
+x [[aaa]]]\bb[a]][\b\b[[[]]] y	[[aaa]]aaa
+x [[b[b]a][a[a]]\\a]] y	
+x [[b[]\a\b\b[][b]b]] y	
+x [[\][[\[[[\a][]a\a[bbb[aa]] y	[[\a][]a\a[bbb[aa]]\a
+x [[][[]b[]] y	
+x [[ba]b[\\b][][]] y	
+x [[\\ba[]a]][]] y	
+x [[]aa\][[]] y	
+x [[b[ba[bbab][ab]]ab\[[]] y	
+x [[[\a]\\b\[][[][[ba]] y	[[ba]]ba
+x [[[a]a]a[[a][a\b\[a]] y	[[a][a\b\[a]]a
+x [[[b]]ab][aba\ba]] y	[[b]]b
+x [[\\[\[bb]]b\\][][[ab\ba[]] y	
+x [[[[]\\a\\[][[]]] y	
+x [[\abb][]b\]] y	[[\abb][]b\]]\abb
+x [[[\aba][\[]\]a]] y	[[\aba][\[]\]a]]\aba
+x [[bab\bb]][\a\\[[\\\[]a]] y	[[bab\bb]]bab\bb
+x [[]\[b]ba[]]][\][\\]]b[[a]] y	[[a]]a
+x [[b][]]a[bb]] y	[[b][]]a[bb]]b
+x [[\][]\\b[a\\baa]] y	
+x [[\\b]\][]a\[][aba\\\a[\[]] y	
+x [[\]\][[[][\]] y	
+x [[]ba][bbaaa[]] y	
+x [[\\a][b[\ba]] y	[[\\a][b[\ba]]\\a
+x [[[aa]\[b]][]] y	
+x [[[b][]]]] y	[[b][]]]b
+x [[\[a]a\\babb][[\\b\]] y	
+x [[\]]\b[ab][\a][[\][b]] y	
+x [[a\bb\[a][][b]]] y	[[a\bb\[a][][b]]a\bb\[a
+x [[][]b][]bb]] y	
+x [[[\]bbaaa]]]]][[[[[a\]] y	[[\]bbaaa]]\]bbaaa
+x [[a\\baaaa]][][[b\]]]\]]] y	[[a\\baaaa]]a\\baaaa[[b\]]]b\]
+x [[b\[[[[][\\]bab]] y	
+x [[baaab][]] y	
+x [[ba]b]][[\[a]] y	[[\[a]]\[a
+x [[aab\aa][]]ba\[]]]] y	[[aab\aa][]]ba\[]]aab\aa
+x [[\a[]bb\][b[[b[a[b[]] y	
+x [[][][]] y	
+x [[b][aa[b[[[aa]] y	[[b][aa[b[[[aa]]b
+x [[\[a][aa]baa]]\]]] y	[[\[a][aa]baa]]\[a
+x [[]a\a]][b\]b]][\[a]]] y	
+x [[b]][\[\]] y	[[b]]b
+x [[b[b\a[[\a[][bb\[b[a[[]] y	
+x [[]]a\\[]ab][aabab\]aa\[]]] y	
+x [[[][b\a]] y	
+x [[[[a[][]] y	
+x [[bb\]]\][]]\]] y	
+x [[a\\a][b]] y	[[a\\a][b]]a\\a
+x [[abba]a[][]b\b]] y	
+x [[b\\][[[ab][[[bb[\]] y	[[b\\][[[ab][[[bb[\]]b\\
+x [[]\a][a\b]\][]]]] y	
+x [[a[[]ba[b][\b[]] y	
+x [[\ab\[a\\b[]]][b]]b\]\]] y	
+x [[]][[b\bb[\[]] y	
+x [[[b\]][[]b\babab[[]] y	[[b\]][[]b\babab[[]]b\]
+x [[\]a[][[]] y	
+x [[]a]][\]]]] y	
+x [[]]b][]b\\\]b]]] y	
+x [[]]b[ab[[]][a\ba\]] y	
+x [[[\]\][]baa\a]] y	
+x [[]bbb[[b][a\bb]]] y	[[b][a\bb]]b
+x [[]]]\[a\][ba]\[b\[a\\]] y	
+x [[[b[aa\][b][[\]] y	
+x [[b[b\a]\\\a[][[aa][\[\\b]] y	[[aa][\[\\b]]aa
+x [[\bb]a[[][]bb\ba\b]b]] y	
+x [[]\\\][\]] y	
+x [[ab\\[a[b][b\]bb]] y	
+x [[[][bb]a[]a\b[b]]] y	
+x [[][][b][]] y	
+x [[a][aa]] y	[[a][aa]]a
+x [[\]bab\a\][b\a\a\ab[]] y	
+x [[b\a][b]] y	[[b\a][b]]b\a
+x [[a][a\\]\[[[\]] y	[[a][a\\]\[[[\]]a
+x [[baa\]\\][b\\b]] y	[[baa\]\\][b\\b]]baa\]\\
+x [[abb][[[]\\ba][]]]] y	[[abb][[[]\\ba][]]abb
+x [[a][a\a]]]]] y	[[a][a\a]]a
+x [[[]\a\[\\][][[[a[a[[b]] y	[[b]]b
+x [[]]b[][ba]a[\a]]] y	
+x [[b\[a[a]a][b][]b]\\]] y	
+x [[[abb\\a]\][bb\a[b]] y	
+x [[][\[]][]][\b\[b]] y	
+x [[][b[]]] y	
+x [[[a[][b][][\]]a\b[\a[]] y	
+x [[b\][bbaab]] y	
+x [[a\[bababa\ab][]]]]] y	[[a\[bababa\ab][]]]a\[bababa\ab
+x [[[\b[a[a[\][]]] y	
+x [[]\[\b\[][a[[[\a[a\a]] y	
+x [[a]a\a\aab][b]]]]][[[\ba]] y	[[\ba]]\ba
+x [[[][\[bab\b]bb]] y	
+x [[\]b][\[][\bb]\\\]] y	[[\]b][\[][\bb]\\\]]\]b
+x [[\]a][\bb[a[bbab]]] y	[[\]a][\bb[a[bbab]]\]a
+x [[]]\a\[][[[\[][[]] y	[[\[][[]]\[
+x [[]b]][b]]][][\\]] y	
+x [[b\\][[[abb][\[[bb\ba]] y	[[b\\][[[abb][\[[bb\ba]]b\\
+x [[\[[]\][\\[b\abb]] y	
+x [[ab]ab[\]\ba[][\[]a]]]bb[]] y	
+x [[\]\bbb][]] y	
+x [[b[a][\aab\]]\a\]] y	
+x [[bab][]\\b\]] y	[[bab][]\\b\]]bab
+x [[a[\\[ab\aaa][]a]]b\a]] y	
+x [[][b[][bba]]\a]]][]] y	
+x [[]a\][b]\a\bab]] y	
+x [[b][]a\\b]] y	[[b][]a\\b]]b
+x [[[baaa]\[\baa][][]]a[b]] y	
+x [[ab\\abb[b[a]][[a]\]] y	
+x [[[aa]b[[a\b]][b][a[[a\]]]]] y	[[a\b]]a\b[[a\]]]a\]
+x [[\[]b\][]] y	
+x [[][]]][]a]] y	
+x [[][[]] y	
+x [[]]a[b\aa\]\[][a\]] y	
+x [[][[]b]] y	
+x [[\]][aab][[[]] y	[[\]][aab][[[]]\]
+x [[\\\][]] y	
+x [[][\\\a]] y	
+x [[][]]a[a]] y	
+x [[[]b][b[\\ab][ab]b]a\]] y	
+x [[a[[]bbba][\\[[]]]] y	
+x [[\b]]aa\\[][][]\\\b[a\aa]] y	[[\b]]\b
+x [[]\][]] y	
+x [[a[[b]]][a[]]][\abb[[\\]] y	[[b]]b[[\\]]\\
+x [[]aa\]\]\a\[][aab]] y	
+x [[\\]a\b\[[b][\\]] y	
+x [[[b][[a\][\ba\\\[a[]] y	[[b][[a\][\ba\\\[a[]]b
+x [[baa]ba\][[\bb]\[a[]] y	
+x [[][\][]a[]] y	
+x [[[]\b[bab[][]]]a[b\\a]] y	
+x [[b[[\a]a\]][[\b\]] y	
+x [[][ab[]a]\]]][a\][[[bbb]] y	[[bbb]]bbb
+x [[\b\]a][[\]b\][]\\a]\]] y	[[\b\]a][[\]b\][]\\a]\]]\b\]a
+x [[a]b[]\]\\a]][[\b]] y	[[\b]]\b
+x [[][]ab]] y	
+x [[b\aa\bbb][\]babaa[aa]] y	[[b\aa\bbb][\]babaa[aa]]b\aa\bbb
+x [[[\][]] y	
+x [[][aa[a][b\]aa\]a[a][]] y	
+x [[aa]\\b[]a[][ab]\[ab]] y	
+x [[aaba]\][bbab[a]]] y	
+x [[b[[\[[][[\][ba[]] y	
+x [[[[][]b[ab][b]] y	
+x [[]b\]ba]ab][\\]]]] y	
+x [[a\\[b[\][b]] y	
+x [[\a\\]][][]]] y	[[\a\\]]\a\\
+x [[a[][[[a[\b[]b[\\]] y	
+x [[[][]abb[]\]]][[baab[]] y	
+x [[[]]\ab]\aa][\[baaa\ba[b[]] y	
+x [[][]ba][[b]] y	[[b]]b
+x [[]\]]a\][\aa]a]] y	
+x [[]a\][]\b]b]] y	
+x [[\b[[b][]ba[]b]b[]] y	[[b][]ba[]b]b[]]b
+x [[ba]a\b\b\]bb][[]]]]] y	
+x [[]b\ba][\[]] y	
+x [[abb[b]bb\][b[a[b]ba]aa[]] y	
+x [[[b[\b]][a[a]]] y	
+x [[a[]b[[[\\[a][]\[\][\\baab]] y	
+x [[]]\[b]][a]\]]] y	
+x [[bb\]a[][aa[\]][][]] y	
+x [[a[\[\b[\b\[][a]b]a]] y	
+x [[aa][]aa][]] y	[[aa][]aa][]]aa
+x [[]aa][ba\\bb]]] y	
+x [[[a]b]][]b\\][[\aa]a]]] y	
+x [[a\b[]][a\][b]ab\b]] y	
+x [[a\aa]\\a[][\]b\b]] y	
+x [[b[[\a]\b[][]] y	
+x [[]a[\a\][[]]]] y	
+x [[aabb][][[a\\]] y	[[aabb][][[a\\]]aabb
+x [[][[a][[[b[]bb]] y	[[a][[[b[]bb]]a
+x [[]][\a\a][[a[ba]b[b]] y	
+x [[a[\bb][]][][]b]] y	
+x [[]][a[a]b]] y	
+x [[\[aabbba[ba][b]] y	
+x [[[[bb]]][[[ba]\a]\]]] y	[[bb]]bb
+x [[]b]b\[a][a]b]]bba\[[]] y	
+x [[\]][]\\\[a[b\]] y	[[\]][]\\\[a[b\]]\]
+x [[]][]a]a[b[][[\\\ab][bb\]] y	[[\\\ab][bb\]]\\\ab
+x [[a\]aaa]\]bb\][]a]\b]] y	
+x [[[a[[][\]]b]]] y	
+x [[[a][\]\a]]][][[\]b\aab[[]]]] y	[[a][\]\a]]a
+x [[\b\[\\[]][][a[\[]a]] y	
+x [[][]\\][ba[\]] y	
+x [[[babb]b][]]]a]]] y	
+x [[\a\b[\\][[b[ba\[]\a\]] y	
+x [[\]\]a\ba]a]][[]bb]\[]] y	
+x [[][[]\[b\\\]][b[a[]] y	
+x [[ab[ba]][]]] y	
+x [[ba\ab\b]][ba[]] y	[[ba\ab\b]]ba\ab\b
+x [[ab[a]b\[][a]]] y	
+x [[b[[\]\][[\\[\][b]] y	
+x [[][a]\b][]b]aa][ab[a]] y	
+x [[b][aa[\b]b]] y	[[b][aa[\b]b]]b
+x [[a][[a\]] y	[[a][[a\]]a
+x [[[b]][]a\bb][bb]] y	[[b]]b
+x [[\a[]][a]]] y	
+x [[\]]a[a\[\[a][[]\a]] y	
+x [[\\][][ab[b[b]] y	[[\\][][ab[b[b]]\\
+x [[a][][][bb[\\[]] y	[[a][][][bb[\\[]]a
+x [[a[[\][[a[\ba\\\]] y	
+x [[[a][\[baaa\a]]]] y	[[a][\[baaa\a]]a
+x [[][b\a][[b\a]] y	[[b\a]]b\a
+x [[]]\][ab]] y	
+x [[\[b\a[][\\[b[\]] y	
+x [[b]b\]b[ba][[a\]b]\]\]] y	
+x [[b][\]] y	[[b][\]]b
+x [[\a\aa[[][bb][ba]aa]] y	
+x [[aa][[]a]\[\]] y	[[aa][[]a]\[\]]aa
+x [[]\[\[[bb][aaa\\]] y	
+x [[b]\\][[[[b]\\ba]] y	
+x [[][[b\\a[\[ba]] y	
+x [[[b[[\][\\[[\bbb]] y	[[\bbb]]\bbb
+x [[\aababb[][[]\bba[\aba]] y	
+x [[aba[\[]a]][ba[a\b]]] y	
+x [[[[\b[]]b[b][ab[]\[[b[][]]] y	
+x [[aa[a][[b[[]] y	
+x [[[b][b\]] y	[[b][b\]]b
+x [[a\][\\b\]] y	
+x [[bbb\][]]] y	
+x [[aa][[a]\][\aa]]\]a[[]b]] y	[[aa][[a]\][\aa]]aa
+x [[]][]b[a\[b\\][aa][]\a[]] y	
+x [[][]]\a\\b][[a]] y	[[a]]a
+x [[bba\][][a]\]] y	
+x [[a][]\a]ab]a]] y	[[a][]\a]ab]a]]a
+x [[]a]bb[bba][[a[[b[ba]aa\]] y	
+x [[][]ba[][b]] y	
+x [[\a[]][\\bb]ba]]] y	
+x [[b]\[\][ba\\]] y	
+x [[[aa][]] y	
+x [[a][\[]bbb[bb]a]] y	[[a][\[]bbb[bb]a]]a
+x [[[aa\b][\aa[a]\bab\]] y	[[aa\b][\aa[a]\bab\]]aa\b
+x [[][[a]][\a\]]\]] y	[[a]]a
+x [[a[[][[ba]a][a]b\]bb]][\]] y	
+x [[bb\]\\a]\][[[a[a]b\\\a]]] y	
+x [[]][]\[\\]b]] y	
+x [[]]]ba[[]][\]ab]a\a\]]] y	
+x [[a][\a[b]]] y	[[a][\a[b]]a
+x [[]\a]a]b]b[a][]] y	
+x [[b]b\a[]]abbb][[[b\\]] y	[[b\\]]b\\
+x [[][\[\]] y	
+x [[abb[[[]\a]]][[]ba]] y	
+x [[\a][]a[]]] y	[[\a][]a[]]\a
+x [[a[][]][a\a[]]] y	
+x [[aabbb[b\][ba[a\]] y	
+x [[a\]]]\aaaa\][a][aaab\[]] y	[[a\]]]a\]
+x [[\a]][[[a[\][aab]\]]\]] y	[[\a]]\a
+x [[[[\b[[][ba]][]] y	
+x [[a][]ab[]\[b\[ba]] y	[[a][]ab[]\[b\[ba]]a
+x [[aa]b\]aabb][a[aa]\\[]] y	
+x [[bba\[a[a]]a]][]\aa][b]] y	
+x [[]][bba]]\b[b]] y	
+x [[b[]aaa\a]]a][]] y	
+x [[a[aab\\[][]b[aaa\[\\]] y	
+x [[a]bb\][]] y	
+x [[][a][\a\a[]]] y	
+x [[b[a]bb]\][b]]] y	
+x [[aa]aab]bb][]] y	
+x [[abb][][[[a]] y	[[abb][][[[a]]abb
+x [[a[]aaa\b]\[\][ba[[bb]\ba]] y	
+x [[a]ab][\a\[ba\][[\]] y	
+x [[]]a\[b[\[]a\][[]]aa]] y	
+x [[]]]bb\b\][\\\ab[\]]a]] y	
+x [[[b]baa[b][[b[a\[]] y	
+x [[\[\][]]\][[]\aa\a]] y	
+x [[[[\\\][b\][a\]]\]] y	[[\\\][b\][a\]]\\\
+x [[[]][]] y	
+x [[[\[b[\b][][\a]] y	
+x [[b\b[[]]]b[][\a[a]]] y	
+x [[babb[]]\baa]][\[]] y	
+x [[a\a]]\][bb]a[b][]] y	[[a\a]]a\a
+x [[b]bbb[]a][[]]] y	
+x [[[\]a]\\]]\b][]\a]\aba\]] y	
+x [[aaa]]b]\b\][b]\\\[]] y	[[aaa]]aaa
+x [[[]][\\\\bb]] y	
+x [[]bb]\\a[][abaa\a]\\bb[]] y	
+x [[aa][\a]a]] y	[[aa][\a]a]]aa
+x [[bba[]ab][[a[[\b]a\]] y	
+x [[[][a[\\b[]] y	
+x [[[\bb[][aba\]] y	
+x [[\[a][[]] y	[[\[a][[]]\[a
+x [[][a][][a\abaa]] y	
+x [[a\a\a[b\\]][b\]a[[[\]]] y	[[\]]]\]
+x [[aa]\\[[ab\][]]ba][[]\]] y	
+x [[]][\[[aa[\a\]] y	
+x [[[][][ba]] y	
+x [[\\]a\ba]a[][][aa\[]a]] y	
+x [[\aa\ba][b]]a\a]] y	[[\aa\ba][b]]\aa\ba
+x [[][b\\a\]]]] y	
+x [[]a[][[b]a\a[][]] y	
+x [[[a][][\\a]] y	[[a][][\\a]]a
+x [[[b\b[a]][\][][[]]\[[\a]b\]] y	
+x [[[\]aa[\[]][bb\\aaba]bb]] y	
+x [[bba][][a\\b[]] y	[[bba][][a\\b[]]bba
+x [[b[a][b[bb\[[]] y	
+x [[[aba][ab[bba]]] y	[[aba][ab[bba]]aba
+x [[b\][]a\\][a\[]] y	
+x [[b[b[]\\\]\aa][]] y	
+x [[[a]][\[]] y	[[a]]a
+x [[]]\[b[bb[][]]]b[]a[a[]] y	
+x [[[a\]b][[]] y	[[a\]b][[]]a\]b
+x [[\[[\][b][]]b]abababb]] y	
+x [[a[][[\a[]\]aa[\]] y	
+x [[\bab][]] y	
+x [[]b]]\a]b][\[[[\]] y	
+x [[[[bb][a[a[a]] y	[[bb][a[a[a]]bb
+x [[ba\[[[][\aa[b[\]] y	
+x [[a[\[]b\[]\a][\[ab]] y	
+x [[ba\\\aa]][[[\]] y	[[ba\\\aa]]ba\\\aa
+x [[b[\ba]]]b][]] y	
+x [[a\][]] y	
+x [[\]a][[\\]][bb[][]] y	[[\]a][[\\]]\]a
+x [[[b]][aba[\a]] y	[[b]]b
+x [[]\a[[[[]a[]][a\]]]ab\aaab]] y	
+x [[]]b[a][b][\\[a[[]] y	
+x [[aab[b][[\\[a][b\b\]] y	
+x [[[a[]][[b[[]ab]]] y	
+x [[b[b]\[][ba\\]] y	
+x [[a]b\a]\aa[]][[]]] y	
+x [[a\\b]\][[]] y	
+x [[\][]a]a[[a]\][]]][[\]] y	
+x [[][][[ba][][]a[]ab]\aa]] y	[[ba][][]a[]ab]\aa]]ba
+x [[]][a]] y	
+x [[]]a[]b\ba]a][]]] y	
+x [[aaa[b]b]\\a]][]\a]] y	
+x [[\][[a\[b]]aa]] y	[[a\[b]]a\[b
+x [[b][]]aa\]\a[aa]] y	[[b][]]aa\]\a[aa]]b
+x [[\]][a]]]] y	[[\]][a]]\]
+x [[b\a][[\\ab[b\]] y	[[b\a][[\\ab[b\]]b\a
+x [[a[a\aabb\b][[b]] y	[[b]]b
+x [[[\ba\aa\][b[]a\a[b]\]]] y	
+x [[][]]]]]] y	
+x [[\][bb\\]][][ba[b\\b][[]] y	
+x [[b[b\\]bb[b[]][ab\[]aa]a\]]] y	
+x [[\[[\][][[ba]] y	[[ba]]ba
+x [[]]]]a\b[\[b][\b[b\\[[\[]] y	[[\[]]\[
+x [[a]\a\\aab\][a[[][[b]] y	[[b]]b
+x [[[aaa\][[ba\b[ba[a]]] y	

@@ -13,7 +13,7 @@ use super::{
     input::Input,
     latex_fragment::latex_fragment_node,
     line_break::line_break_node,
-    link::link_node,
+    link::{link_node, DescriptionScan},
     macros::macros_node,
     nesting::{too_deep, Nesting},
     radio_target::radio_target_node,
@@ -231,6 +231,7 @@ where
     P: Fn(Input<'a>, Input<'a>) -> IResult<Input<'a>, GreenElement, ()>,
 {
     let _level = Nesting::enter();
+    let _scan = DescriptionScan::enter();
     if too_deep() {
         return if input.is_empty() {
             vec![]

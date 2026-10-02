@@ -207,7 +207,8 @@ impl Headline {
     ///
     /// assert_eq!(tags_vec("* :tag:"), vec!["tag".to_string()]);
     /// assert_eq!(tags_vec("* [#A] :::::a2%:"), vec!["a2%".to_string()]);
-    /// assert_eq!(tags_vec("* TODO :tag:  :a2%:"), vec!["tag".to_string(), "a2%".to_string()]);
+    /// assert_eq!(tags_vec("* TODO :tag:  :a2%:"), vec!["a2%".to_string()]);
+    /// assert_eq!(tags_vec("* title:tag:"), vec!["tag".to_string()]);
     /// assert_eq!(tags_vec("* title :tag:a2%:"), vec!["tag".to_string(), "a2%".to_string()]);
     /// ```
     pub fn tags(&self) -> impl Iterator<Item = Token> {

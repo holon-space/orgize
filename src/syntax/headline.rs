@@ -1,4 +1,4 @@
-use memchr::memrchr_iter;
+use memchr::memchr_iter;
 use nom::{
     bytes::complete::take_while1,
     character::complete::{anychar, space0},
@@ -150,63 +150,32 @@ fn headline_stars(input: Input) -> IResult<Input, Input, ()> {
     tracing::instrument(level = "debug", skip(input), fields(input = input.s))
 )]
 fn headline_tags_node(input: Input) -> IResult<Input, GreenElement, ()> {
-    if !input.s.ends_with(':') {
+    // org-element's headline parser: `:[[:alnum:]_@#%:]+:` ending the line,
+    // leftmost match, so no blank is needed before it.
+    let run = input
+        .s
+        .char_indices()
+        .rev()
+        .take_while(|&(_, c)| c == ':' || (input.c.is_tag_char)(c))
+        .last()
+        .ok_or(nom::Err::Error(()))?
+        .0;
+    let start = run + input.s[run..].find(':').ok_or(nom::Err::Error(()))?;
+    if input.len() - start < 3 || !input.s.ends_with(':') {
         return Err(nom::Err::Error(()));
-    };
+    }
 
-    let bytes = input.as_bytes();
-
-    // we're going to skip to first colon, so we start from the
-    // second last character
-    let mut i = input.len() - 1;
-    let mut can_not_be_ws = true;
     let mut children = vec![token(COLON, ":")];
-
-    for ii in memrchr_iter(b':', bytes).skip(1) {
-        let item = &bytes[ii + 1..i];
-
-        if item.is_empty() {
-            children.push(token(COLON, ":"));
-            can_not_be_ws = false;
-            debug_assert!(i > ii, "{} > {}", i, ii);
-            i = ii;
-        } else if String::from_utf8_lossy(item)
-            .chars()
-            // The default predicate matches org-element.el (alphanumeric +
-            // `_@#%`), extended with `-` to accept hyphenated tags emitted by
-            // Orgzly / Logseq / Org-Roam. Override via `ParseConfig::is_tag_char`.
-            // https://github.com/yyr/org-mode/blob/d8494b5668ad4d4e68e83228ae8451eaa01d2220/lisp/org-element.el#L922C25-L922C32
-            .all(input.c.is_tag_char)
-        {
-            children.push(input.slice(ii + 1..i).text_token());
-            children.push(token(COLON, ":"));
-            can_not_be_ws = false;
-            debug_assert!(i > ii, "{} > {}", i, ii);
-            i = ii;
-        } else if item.iter().all(|&c| c == b' ' || c == b'\t') && !can_not_be_ws {
-            children.push(input.slice(ii + 1..i).ws_token());
-            children.push(token(COLON, ":"));
-            can_not_be_ws = true;
-            debug_assert!(i > ii, "{} > {}", i, ii);
-            i = ii;
-        } else {
-            break;
+    let mut item_start = start + 1;
+    for colon in memchr_iter(b':', &input.as_bytes()[start + 1..]).map(|i| start + 1 + i) {
+        if colon > item_start {
+            children.push(input.slice(item_start..colon).text_token());
         }
+        children.push(token(COLON, ":"));
+        item_start = colon + 1;
     }
 
-    if children.len() <= 2 {
-        return Err(nom::Err::Error(()));
-    }
-
-    if i != 0 && bytes[i - 1] != b' ' && bytes[i - 1] != b'\t' {
-        return Err(nom::Err::Error(()));
-    }
-
-    // we parse headline tag from right to left,
-    // so we need to reverse the result after it finishes
-    children.reverse();
-
-    Ok((input.slice(0..i), node(HEADLINE_TAGS, children)))
+    Ok((input.slice(0..start), node(HEADLINE_TAGS, children)))
 }
 
 fn headline_keyword_token(input: Input) -> IResult<Input, (GreenElement, Input), ()> {
@@ -366,7 +335,7 @@ fn issue_15_16() {
 
     let tags = to_headline("* a :余: :破:").tags();
     assert_eq!(
-        vec!["余".to_string(), "破".to_string()],
+        vec!["破".to_string()],
         tags.map(|x| x.to_string()).collect::<Vec<_>>(),
     );
 
@@ -404,4 +373,40 @@ fn custom_is_tag_char() {
             .map(|t| t.to_string())
             .collect::<Vec<_>>(),
     );
+}
+
+#[test]
+fn a_headline_title_and_tags_are_read_as_org_reads_them() {
+    use crate::{ast::Headline, rowan::ast::AstNode, Org};
+
+    // Fields per row, from `headline_tags_org_9_7_11.el` (`emacs -Q` 30.2,
+    // org 9.7.11): LINE, then org's title and tag group, separated by `\x1f`.
+    let wrong: Vec<String> = include_str!("headline_tags_org_9_7_11.txt")
+        .lines()
+        .filter_map(|row| {
+            let mut fields = row.split('\x1f');
+            let (line, title, tags) = (
+                fields.next().unwrap(),
+                fields.next().unwrap(),
+                fields.next().unwrap(),
+            );
+            let headline = Org::parse(format!("* {line}"))
+                .first_node::<Headline>()
+                .unwrap();
+            let ours_title = headline.title_raw();
+            let ours_title = ours_title.trim_matches([' ', '\t']);
+            let ours_tags = headline
+                .syntax()
+                .children()
+                .find(|n| n.kind() == HEADLINE_TAGS)
+                .map(|n| n.to_string())
+                .unwrap_or_default();
+            let org_tag_names: Vec<&str> = tags.split(':').filter(|t| !t.is_empty()).collect();
+            let ours_tag_names: Vec<String> = headline.tags().map(|t| t.to_string()).collect();
+            (ours_title != title || ours_tags != tags || ours_tag_names != org_tag_names).then(
+                || format!("{line:?}: org ({title:?}, {tags:?}), orgize ({ours_title:?}, {ours_tags:?}, {ours_tag_names:?})"),
+            )
+        })
+        .collect();
+    assert!(wrong.is_empty(), "{} rows differ:\n{}", wrong.len(), wrong.join("\n"));
 }

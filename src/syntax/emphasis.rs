@@ -97,7 +97,7 @@ fn emphasis(marker: u8) -> impl Fn(Input) -> IResult<Input, Input, ()> {
     move |input: Input| {
         let bytes = input.as_bytes();
 
-        if bytes.len() < 3 || bytes[0] != marker || bytes[1].is_ascii_whitespace() {
+        if bytes.len() < 3 || bytes[0] != marker || input.s[1..].starts_with(is_org_space) {
             return Err(nom::Err::Error(()));
         }
 
@@ -122,17 +122,25 @@ fn emphasis(marker: u8) -> impl Fn(Input) -> IResult<Input, Input, ()> {
 }
 
 fn validate_marker(pos: usize, text: Input) -> bool {
-    if text.as_bytes()[pos - 1].is_ascii_whitespace() {
+    if text.s[..pos].ends_with(is_org_space) {
         false
-    } else if let Some(post) = text.as_bytes().get(pos + 1) {
-        [
-            b' ', b'\t', b'\r', b'\n', b'-', b'.', b',', b';', b':', b'!', b'?', b'\'', b')', b'}',
-            b'[',
-        ]
-        .contains(post)
+    } else if let Some(post) = text.s[pos + 1..].chars().next() {
+        is_org_space(post)
+            || matches!(
+                post,
+                '-' | '.' | ',' | ';' | ':' | '!' | '?' | '\'' | '"' | ')' | '}' | '\\' | '['
+            )
     } else {
         true
     }
+}
+
+/// `[[:space:]]` under org-mode's syntax table.
+fn is_org_space(c: char) -> bool {
+    matches!(
+        c,
+        '\t' | '\n' | '\x0c' | '\r' | ' ' | '\u{a0}' | '\u{2000}'..='\u{200b}' | '\u{202f}' | '\u{205f}' | '\u{3000}'
+    )
 }
 
 pub fn verify_pre(input: &str) -> bool {
@@ -188,4 +196,37 @@ fn parse() {
     assert!(bold_node(("* bold*", config).into()).is_err());
     assert!(bold_node(("*b\nol\nd*", config).into()).is_err());
     assert!(italic_node(("*bold*", config).into()).is_err());
+}
+
+#[test]
+fn an_emphasis_border_is_read_as_org_reads_it() {
+    use crate::{rowan::ast::AstNode, Org};
+
+    // `emacs -Q` 30.2, org 9.7.11: each line and the underline org reads in it.
+    let cases = [
+        ("_\u{a0}a_", None),
+        ("_a\u{a0}_", None),
+        ("_\u{3000}a_", None),
+        ("_a\u{2003}_", None),
+        ("_\u{1680}a_", Some("_\u{1680}a_")),
+        ("_a_\u{a0}x", Some("_a_")),
+        ("_a_\u{3000}x", Some("_a_")),
+        ("_a_\u{1680}", None),
+        ("_a_\u{b}x", None),
+        ("_a_\"", Some("_a_")),
+        ("_a_\\", Some("_a_")),
+    ];
+    let wrong: Vec<String> = cases
+        .iter()
+        .filter_map(|&(text, org)| {
+            let ours = Org::parse(text)
+                .document()
+                .syntax()
+                .descendants()
+                .find(|n| n.kind() == UNDERLINE)
+                .map(|n| n.to_string());
+            (ours.as_deref() != org).then(|| format!("{text:?}: org {org:?}, orgize {ours:?}"))
+        })
+        .collect();
+    assert!(wrong.is_empty(), "{}", wrong.join("\n"));
 }

@@ -38,6 +38,7 @@ pub mod subscript_superscript;
 pub mod table;
 pub mod target;
 pub mod timestamp;
+mod word_start;
 
 use rowan::Language;
 

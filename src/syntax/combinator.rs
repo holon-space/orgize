@@ -156,6 +156,18 @@ fn test_blank_lines() {
 
 /// Returns 1. anything before trailing whitespace, 2. whitespace itself, 3. line feeding
 pub fn trim_line_end(input: Input) -> IResult<Input, (Input, Input, Input), ()> {
+    split_line_end(input, |u| u.is_ascii_whitespace())
+}
+
+/// [`trim_line_end`] with only spaces and tabs as trailing whitespace.
+pub fn trim_line_end_blanks(input: Input) -> IResult<Input, (Input, Input, Input), ()> {
+    split_line_end(input, |u| matches!(u, b' ' | b'\t'))
+}
+
+fn split_line_end(
+    input: Input,
+    is_trailing: impl Fn(u8) -> bool,
+) -> IResult<Input, (Input, Input, Input), ()> {
     let bytes = input.as_bytes();
 
     let (input, contents, nl) = match memchr2(b'\r', b'\n', bytes) {
@@ -172,7 +184,7 @@ pub fn trim_line_end(input: Input) -> IResult<Input, (Input, Input, Input), ()> 
         _ => (input.of(""), input, input.of("")),
     };
 
-    let (contents, ws) = match contents.bytes().rposition(|u| !u.is_ascii_whitespace()) {
+    let (contents, ws) = match contents.bytes().rposition(|u| !is_trailing(u)) {
         Some(i) => (contents.slice(0..i + 1), contents.slice(i + 1..)),
         None => (contents.of(""), contents),
     };

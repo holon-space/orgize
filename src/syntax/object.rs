@@ -1,4 +1,4 @@
-use nom::{IResult, InputTake};
+use nom::{IResult, InputTake, Slice};
 
 use super::{
     combinator::GreenElement,
@@ -21,6 +21,7 @@ use super::{
     subscript_superscript::{self, subscript_node, superscript_node},
     target::target_node,
     timestamp::{timestamp_active_node, timestamp_diary_node, timestamp_inactive_node},
+    word_start,
 };
 
 struct ObjectPositions<'a> {
@@ -120,17 +121,17 @@ impl<'a> Iterator for ObjectPositions<'a> {
 pub fn minimal_object_nodes(input: Input) -> Vec<GreenElement> {
     object_nodes(
         ObjectPositions::minimal,
-        |i: Input, pre: Input| match &i.as_bytes()[0] {
-            b'*' if emphasis::verify_pre(pre.s) => bold_node(i),
-            b'+' if emphasis::verify_pre(pre.s) => strike_node(i),
-            b'/' if emphasis::verify_pre(pre.s) => italic_node(i),
-            b'_' if emphasis::verify_pre(pre.s) => underline_node(i),
-            b'=' if emphasis::verify_pre(pre.s) => verbatim_node(i),
-            b'~' if emphasis::verify_pre(pre.s) => code_node(i),
+        |i: Input, before: Input| match &i.as_bytes()[0] {
+            b'*' if emphasis::verify_pre(before.s) => bold_node(i),
+            b'+' if emphasis::verify_pre(before.s) => strike_node(i),
+            b'/' if emphasis::verify_pre(before.s) => italic_node(i),
+            b'_' if emphasis::verify_pre(before.s) => underline_node(i),
+            b'=' if emphasis::verify_pre(before.s) => verbatim_node(i),
+            b'~' if emphasis::verify_pre(before.s) => code_node(i),
             b'$' => latex_fragment_node(i),
             b'\\' => entity_node(i).or_else(|_| latex_fragment_node(i)),
-            b'^' if subscript_superscript::verify_pre(&pre) => superscript_node(i),
-            b'_' if subscript_superscript::verify_pre(&pre) => subscript_node(i),
+            b'^' if subscript_superscript::verify_pre(&before) => superscript_node(i),
+            b'_' if subscript_superscript::verify_pre(&before) => subscript_node(i),
             _ => Err(nom::Err::Error(())),
         },
         input,
@@ -160,13 +161,13 @@ pub fn minimal_object_nodes(input: Input) -> Vec<GreenElement> {
 pub fn standard_object_nodes(input: Input) -> Vec<GreenElement> {
     object_nodes(
         ObjectPositions::standard,
-        |i: Input, pre: Input| match &i.as_bytes()[0] {
-            b'*' if emphasis::verify_pre(pre.s) => bold_node(i),
-            b'+' if emphasis::verify_pre(pre.s) => strike_node(i),
-            b'/' if emphasis::verify_pre(pre.s) => italic_node(i),
-            b'_' if emphasis::verify_pre(pre.s) => underline_node(i),
-            b'=' if emphasis::verify_pre(pre.s) => verbatim_node(i),
-            b'~' if emphasis::verify_pre(pre.s) => code_node(i),
+        |i: Input, before: Input| match &i.as_bytes()[0] {
+            b'*' if emphasis::verify_pre(before.s) => bold_node(i),
+            b'+' if emphasis::verify_pre(before.s) => strike_node(i),
+            b'/' if emphasis::verify_pre(before.s) => italic_node(i),
+            b'_' if emphasis::verify_pre(before.s) => underline_node(i),
+            b'=' if emphasis::verify_pre(before.s) => verbatim_node(i),
+            b'~' if emphasis::verify_pre(before.s) => code_node(i),
             b'@' => snippet_node(i),
             b'{' => {
                 cfg_if::cfg_if! {
@@ -185,15 +186,13 @@ pub fn standard_object_nodes(input: Input) -> Vec<GreenElement> {
                 .or_else(|_| link_node(i))
                 .or_else(|_| fn_ref_node(i))
                 .or_else(|_| timestamp_inactive_node(i)),
-            // NOTE: although not specified in document, inline call and inline src follows the
-            // same pre tokens rule as text markup
-            b'c' if emphasis::verify_pre(pre.s) => inline_call_node(i),
-            b's' if emphasis::verify_pre(pre.s) => inline_src_node(i),
+            b'c' if word_start::follows_no_word(before.s) => inline_call_node(i),
+            b's' if word_start::follows_no_word(before.s) => inline_src_node(i),
             b'$' => latex_fragment_node(i),
-            b'\\' if !pre.s.ends_with('\\') && i.as_bytes()[1] == b'\\' => line_break_node(i),
+            b'\\' if !before.s.ends_with('\\') && i.as_bytes()[1] == b'\\' => line_break_node(i),
             b'\\' => entity_node(i).or_else(|_| latex_fragment_node(i)),
-            b'^' if subscript_superscript::verify_pre(&pre) => superscript_node(i),
-            b'_' if subscript_superscript::verify_pre(&pre) => subscript_node(i),
+            b'^' if subscript_superscript::verify_pre(&before) => superscript_node(i),
+            b'_' if subscript_superscript::verify_pre(&before) => subscript_node(i),
             _ => Err(nom::Err::Error(())),
         },
         input,
@@ -203,22 +202,22 @@ pub fn standard_object_nodes(input: Input) -> Vec<GreenElement> {
 pub fn link_description_object_nodes(input: Input) -> Vec<GreenElement> {
     object_nodes(
         ObjectPositions::link_description,
-        |i: Input<'_>, pre: Input<'_>| match &i.as_bytes()[0] {
+        |i: Input<'_>, before: Input<'_>| match &i.as_bytes()[0] {
             b'@' => snippet_node(i),
-            b'c' if emphasis::verify_pre(pre.s) => inline_call_node(i),
-            b's' if emphasis::verify_pre(pre.s) => inline_src_node(i),
+            b'c' if word_start::follows_no_word(before.s) => inline_call_node(i),
+            b's' if word_start::follows_no_word(before.s) => inline_src_node(i),
             b'{' => macros_node(i),
             b'[' => cookie_node(i),
-            b'*' if emphasis::verify_pre(pre.s) => bold_node(i),
-            b'+' if emphasis::verify_pre(pre.s) => strike_node(i),
-            b'/' if emphasis::verify_pre(pre.s) => italic_node(i),
-            b'_' if emphasis::verify_pre(pre.s) => underline_node(i),
-            b'=' if emphasis::verify_pre(pre.s) => verbatim_node(i),
-            b'~' if emphasis::verify_pre(pre.s) => code_node(i),
+            b'*' if emphasis::verify_pre(before.s) => bold_node(i),
+            b'+' if emphasis::verify_pre(before.s) => strike_node(i),
+            b'/' if emphasis::verify_pre(before.s) => italic_node(i),
+            b'_' if emphasis::verify_pre(before.s) => underline_node(i),
+            b'=' if emphasis::verify_pre(before.s) => verbatim_node(i),
+            b'~' if emphasis::verify_pre(before.s) => code_node(i),
             b'$' => latex_fragment_node(i),
             b'\\' => entity_node(i).or_else(|_| latex_fragment_node(i)),
-            b'^' if subscript_superscript::verify_pre(&pre) => superscript_node(i),
-            b'_' if subscript_superscript::verify_pre(&pre) => subscript_node(i),
+            b'^' if subscript_superscript::verify_pre(&before) => superscript_node(i),
+            b'_' if subscript_superscript::verify_pre(&before) => subscript_node(i),
             _ => Err(nom::Err::Error(())),
         },
         input,
@@ -240,6 +239,7 @@ where
         };
     }
 
+    let input_start = input;
     let mut i = input;
     let mut nodes = vec![];
 
@@ -251,11 +251,12 @@ where
                 input.s
             );
 
-            if let Ok((input, pre)) = parse(input, head) {
+            let before = input_start.slice(..input_start.len() - i.len() + head.len());
+            if let Ok((input, object)) = parse(input, before) {
                 if !head.is_empty() {
                     nodes.push(head.text_token())
                 }
-                nodes.push(pre);
+                nodes.push(object);
                 debug_assert!(input.len() < i.len(), "{} < {}", input.len(), i.len());
                 i = input;
                 continue 'l;
@@ -382,5 +383,82 @@ functions starting with ~org-element-~."#),
         CARET@1..2 "^"
         TEXT@2..5 "abc"
     "###
+    );
+}
+
+#[test]
+fn an_object_is_read_after_the_character_org_reads_before_it() {
+    use super::SyntaxKind::{self, *};
+    use crate::{rowan::ast::AstNode, Org};
+
+    let org_kind = |name: &str| match name {
+        "bold" => BOLD,
+        "italic" => ITALIC,
+        "underline" => UNDERLINE,
+        "verbatim" => VERBATIM,
+        "code" => CODE,
+        "strike-through" => STRIKE,
+        "inline-src-block" => INLINE_SRC,
+        "inline-babel-call" => INLINE_CALL,
+        "link" => LINK,
+        "subscript" => SUBSCRIPT,
+        "superscript" => SUPERSCRIPT,
+        "line-break" => LINE_BREAK,
+        "entity" => ENTITY,
+        _ => panic!("unknown org object type {name:?}"),
+    };
+    let kinds = [
+        BOLD,
+        ITALIC,
+        UNDERLINE,
+        VERBATIM,
+        CODE,
+        STRIKE,
+        INLINE_SRC,
+        INLINE_CALL,
+        LINK,
+        SUBSCRIPT,
+        SUPERSCRIPT,
+        LINE_BREAK,
+        ENTITY,
+    ];
+    // org reads `\\src` as a LaTeX fragment; orgize's needs `[...]` or `{...}` after the name.
+    let known_different = ["a\\src_x{y} z", "a\\call_f() z"];
+    // Fields per row, from `object_pre_org_9_7_11.el` (`emacs -Q` 30.2,
+    // org 9.7.11): LINE, then each object org reads in it as TYPE\x1eTEXT.
+    let wrong: Vec<String> = include_str!("object_pre_org_9_7_11.txt")
+        .lines()
+        .chain(["a\n*b* z\x1fbold\x1e*b*"])
+        .filter_map(|row| {
+            let mut fields = row.split('\x1f');
+            let line = fields.next().unwrap();
+            let org: Vec<(SyntaxKind, String)> = fields
+                .filter(|f| !f.is_empty())
+                .map(|f| {
+                    let (kind, text) = f.split_once('\x1e').unwrap();
+                    (org_kind(kind), text.to_string())
+                })
+                .collect();
+            let ours: Vec<(SyntaxKind, String)> = Org::parse(line)
+                .document()
+                .syntax()
+                .descendants()
+                .filter(|n| kinds.contains(&n.kind()))
+                .map(|n| {
+                    (
+                        n.kind(),
+                        n.to_string().trim_end_matches([' ', '\t']).to_string(),
+                    )
+                })
+                .collect();
+            ((ours != org) != known_different.contains(&line))
+                .then(|| format!("{line:?}: org {org:?}, orgize {ours:?}"))
+        })
+        .collect();
+    assert!(
+        wrong.is_empty(),
+        "{} rows differ:\n{}",
+        wrong.len(),
+        wrong.join("\n")
     );
 }

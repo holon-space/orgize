@@ -9,8 +9,8 @@ use nom::{
 
 use super::{
     combinator::{
-        hash_token, l_bracket_token, line_starts_iter, node, r_bracket_token, token, trim_line_end,
-        GreenElement, NodeBuilder,
+        hash_token, l_bracket_token, line_starts_iter, node, r_bracket_token, token,
+        trim_line_end_blanks, GreenElement, NodeBuilder,
     },
     drawer::property_drawer_node,
     element::element_nodes,
@@ -53,7 +53,7 @@ fn headline_node_base(input: Input) -> IResult<Input, GreenElement, ()> {
         b.ws(ws);
     }
 
-    let (input, (title_and_tags, ws_, nl)) = trim_line_end(input)?;
+    let (input, (title_and_tags, ws_, nl)) = trim_line_end_blanks(input)?;
     let (title, tags) = opt(headline_tags_node)(title_and_tags)?;
 
     if !title.is_empty() {
@@ -409,4 +409,37 @@ fn a_headline_title_and_tags_are_read_as_org_reads_them() {
         })
         .collect();
     assert!(wrong.is_empty(), "{} rows differ:\n{}", wrong.len(), wrong.join("\n"));
+}
+
+#[test]
+fn only_spaces_and_tabs_may_follow_a_tag_group() {
+    use crate::{ast::Headline, Org};
+
+    // `emacs -Q` 30.2, org 9.7.11: each line, then org's `:raw-value` and `:tags`.
+    let cases: [(&str, &str, &[&str]); 9] = [
+        ("* x :a:\u{c}", "x :a:\u{c}", &[]),
+        ("* x :a:\u{b}", "x :a:\u{b}", &[]),
+        ("* x :a: \u{c}", "x :a: \u{c}", &[]),
+        ("* x :a:\u{a0}", "x :a:\u{a0}", &[]),
+        ("* x :a:\u{3000}", "x :a:\u{3000}", &[]),
+        ("* x :a: \t ", "x", &["a"]),
+        ("* x\u{c}", "x\u{c}", &[]),
+        ("* x \u{c} ", "x \u{c}", &[]),
+        ("* x\u{c}:a:", "x\u{c}", &["a"]),
+    ];
+    let wrong: Vec<String> = cases
+        .iter()
+        .filter_map(|&(line, title, tags)| {
+            let headline = Org::parse(line).first_node::<Headline>().unwrap();
+            let ours_title = headline.title_raw();
+            let ours_title = ours_title.trim_matches([' ', '\t']);
+            let ours_tags: Vec<String> = headline.tags().map(|t| t.to_string()).collect();
+            (ours_title != title || ours_tags != tags).then(|| {
+                format!(
+                    "{line:?}: org ({title:?}, {tags:?}), orgize ({ours_title:?}, {ours_tags:?})"
+                )
+            })
+        })
+        .collect();
+    assert!(wrong.is_empty(), "{}", wrong.join("\n"));
 }

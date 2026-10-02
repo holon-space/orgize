@@ -143,14 +143,12 @@ fn is_org_space(c: char) -> bool {
     )
 }
 
-pub fn verify_pre(input: &str) -> bool {
-    if input.is_empty() {
-        return true;
-    }
-    matches!(
-        input.as_bytes()[input.len() - 1],
-        b'\t' | b' ' | b'-' | b'(' | b'{' | b'\\' | b'"' | b'\r' | b'\n'
-    )
+/// org-element's opening border: the start of the contents or one of
+/// `[[:space:]] - ( ' " {` before the marker.
+pub fn verify_pre(before: &str) -> bool {
+    before.chars().next_back().map_or(true, |c| {
+        is_org_space(c) || matches!(c, '-' | '(' | '\'' | '"' | '{')
+    })
 }
 
 #[test]

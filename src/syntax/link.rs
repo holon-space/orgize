@@ -251,7 +251,8 @@ fn a_link_path_ends_where_org_ends_it() {
 #[test]
 fn a_link_description_ends_where_org_ends_it() {
     // Each row is a line, a tab, then the links `emacs -Q` 30.2 (org 9.7.11)
-    // reads in it: each one's text, `\x1e`, its path; joined by `\x1f`.
+    // reads in it: each one's text, `\x1e`, its path as written (before org
+    // unescapes it); joined by `\x1f`.
     let wrong: Vec<String> = include_str!("link_description_org_9_7_11.txt")
         .lines()
         .filter_map(|row| {

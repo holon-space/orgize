@@ -6,8 +6,9 @@
 ;; Each row is a paragraph LINE, then the objects org-element reads in it,
 ;; separated by \x1f. An object is its type and its text without post-blank,
 ;; separated by \x1e. LINE puts each character C (not a newline) in front of
-;; an emphasis, an inline source block and an inline call, and puts objects
-;; right after other objects.
+;; an emphasis, an inline source block, an inline call, an underscore that
+;; starts an underline or a subscript and a superscript, and puts objects right after other
+;; objects.
 
 (require 'org)
 (require 'org-element)
@@ -45,7 +46,8 @@
 
 (with-temp-file "object_pre_org_9_7_11.txt"
   (dolist (c object-pre-chars)
-    (dolist (template '("a%s*b* z" "a%ssrc_x{y} z" "a%scall_f() z"))
+    (dolist (template '("a%s*b* z" "a%ssrc_x{y} z" "a%scall_f() z"
+                        "a%s_b_ z" "a%s_*b* z" "a%s_{b} z" "a%s_b z" "a%s^b z"))
       (let ((line (format template (string c))))
         (insert line "\x1f" (object-pre-objects line) "\n"))))
   (dolist (line object-pre-contexts)

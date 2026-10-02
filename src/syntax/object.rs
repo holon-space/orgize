@@ -5,6 +5,7 @@ use super::{
     cookie::cookie_node,
     emphasis::{
         self, bold_node, code_node, italic_node, strike_node, underline_node, verbatim_node,
+        ClosingScan,
     },
     entity::entity_node,
     fn_ref::fn_ref_node,
@@ -18,7 +19,7 @@ use super::{
     nesting::{too_deep, Nesting},
     radio_target::radio_target_node,
     snippet::snippet_node,
-    subscript_superscript::{self, subscript_node, superscript_node},
+    subscript_superscript::{self, subscript_node, superscript_node, BraceScan},
     target::target_node,
     timestamp::{timestamp_active_node, timestamp_diary_node, timestamp_inactive_node},
     word_start,
@@ -125,13 +126,12 @@ pub fn minimal_object_nodes(input: Input) -> Vec<GreenElement> {
             b'*' if emphasis::verify_pre(before.s) => bold_node(i),
             b'+' if emphasis::verify_pre(before.s) => strike_node(i),
             b'/' if emphasis::verify_pre(before.s) => italic_node(i),
-            b'_' if emphasis::verify_pre(before.s) => underline_node(i),
+            b'_' => underline_or_subscript(i, before),
             b'=' if emphasis::verify_pre(before.s) => verbatim_node(i),
             b'~' if emphasis::verify_pre(before.s) => code_node(i),
             b'$' => latex_fragment_node(i),
             b'\\' => entity_node(i).or_else(|_| latex_fragment_node(i)),
             b'^' if subscript_superscript::verify_pre(&before) => superscript_node(i),
-            b'_' if subscript_superscript::verify_pre(&before) => subscript_node(i),
             _ => Err(nom::Err::Error(())),
         },
         input,
@@ -165,7 +165,7 @@ pub fn standard_object_nodes(input: Input) -> Vec<GreenElement> {
             b'*' if emphasis::verify_pre(before.s) => bold_node(i),
             b'+' if emphasis::verify_pre(before.s) => strike_node(i),
             b'/' if emphasis::verify_pre(before.s) => italic_node(i),
-            b'_' if emphasis::verify_pre(before.s) => underline_node(i),
+            b'_' => underline_or_subscript(i, before),
             b'=' if emphasis::verify_pre(before.s) => verbatim_node(i),
             b'~' if emphasis::verify_pre(before.s) => code_node(i),
             b'@' => snippet_node(i),
@@ -192,7 +192,6 @@ pub fn standard_object_nodes(input: Input) -> Vec<GreenElement> {
             b'\\' if !before.s.ends_with('\\') && i.as_bytes()[1] == b'\\' => line_break_node(i),
             b'\\' => entity_node(i).or_else(|_| latex_fragment_node(i)),
             b'^' if subscript_superscript::verify_pre(&before) => superscript_node(i),
-            b'_' if subscript_superscript::verify_pre(&before) => subscript_node(i),
             _ => Err(nom::Err::Error(())),
         },
         input,
@@ -211,17 +210,34 @@ pub fn link_description_object_nodes(input: Input) -> Vec<GreenElement> {
             b'*' if emphasis::verify_pre(before.s) => bold_node(i),
             b'+' if emphasis::verify_pre(before.s) => strike_node(i),
             b'/' if emphasis::verify_pre(before.s) => italic_node(i),
-            b'_' if emphasis::verify_pre(before.s) => underline_node(i),
+            b'_' => underline_or_subscript(i, before),
             b'=' if emphasis::verify_pre(before.s) => verbatim_node(i),
             b'~' if emphasis::verify_pre(before.s) => code_node(i),
             b'$' => latex_fragment_node(i),
             b'\\' => entity_node(i).or_else(|_| latex_fragment_node(i)),
             b'^' if subscript_superscript::verify_pre(&before) => superscript_node(i),
-            b'_' if subscript_superscript::verify_pre(&before) => subscript_node(i),
             _ => Err(nom::Err::Error(())),
         },
         input,
     )
+}
+
+/// `org-element--object-lex` tries an underline first and a subscript when
+/// that fails.
+fn underline_or_subscript<'a>(
+    i: Input<'a>,
+    before: Input<'a>,
+) -> IResult<Input<'a>, GreenElement, ()> {
+    if emphasis::verify_pre(before.s) {
+        if let Ok(underline) = underline_node(i) {
+            return Ok(underline);
+        }
+    }
+    if subscript_superscript::verify_pre(&before) {
+        subscript_node(i)
+    } else {
+        Err(nom::Err::Error(()))
+    }
 }
 
 fn object_nodes<'a, F, P>(position: F, parse: P, input: Input<'a>) -> Vec<GreenElement>
@@ -230,7 +246,9 @@ where
     P: Fn(Input<'a>, Input<'a>) -> IResult<Input<'a>, GreenElement, ()>,
 {
     let _level = Nesting::enter();
-    let _scan = DescriptionScan::enter();
+    let _descriptions = DescriptionScan::enter();
+    let _closings = ClosingScan::enter();
+    let _braces = BraceScan::enter();
     if too_deep() {
         return if input.is_empty() {
             vec![]

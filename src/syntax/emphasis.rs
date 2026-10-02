@@ -1,4 +1,5 @@
-use bytecount::count;
+use std::cell::Cell;
+
 use memchr::memchr_iter;
 use nom::{combinator::map, IResult, Slice};
 
@@ -101,23 +102,122 @@ fn emphasis(marker: u8) -> impl Fn(Input) -> IResult<Input, Input, ()> {
             return Err(nom::Err::Error(()));
         }
 
-        let mut newlines = 0;
-        let mut counted_to = 1;
-        for idx in memchr_iter(marker, bytes).skip(1) {
-            // contains at least one character
-            if idx == 1 {
-                continue;
+        let closing = CLOSINGS.with(|memo| {
+            let end = input.s.as_ptr() as usize + input.s.len();
+            let run = memo.get();
+            let mut closings = match run.flatten() {
+                Some(closings) => {
+                    assert_eq!(
+                        closings.end, end,
+                        "an emphasis starts inside the run of objects it is parsed in"
+                    );
+                    closings
+                }
+                None => Closings::new(end),
+            };
+            let closing = closings.closing(marker, input);
+            if run.is_some() {
+                memo.set(Some(Some(closings)));
             }
-            newlines += count(&bytes[counted_to..idx], b'\n');
-            counted_to = idx;
-            if newlines >= 2 {
-                break;
-            } else if validate_marker(idx, input) {
-                return Ok((input.slice(idx + 1..), input.slice(1..idx)));
-            }
+            closing
+        });
+        match closing {
+            Some(idx) => Ok((input.slice(idx + 1..), input.slice(1..idx))),
+            None => Err(nom::Err::Error(())),
         }
+    }
+}
 
-        Err(nom::Err::Error(()))
+const MARKERS: [u8; 6] = *b"*/_=~+";
+
+thread_local! {
+    static CLOSINGS: Cell<Option<Option<Closings>>> = const { Cell::new(None) };
+}
+
+/// Held while one run of objects is parsed. The run tries its opening
+/// markers from left to right, so each closing-marker scan and each newline
+/// search continues where the previous one stopped.
+pub struct ClosingScan(Option<Option<Closings>>);
+
+impl ClosingScan {
+    pub fn enter() -> ClosingScan {
+        ClosingScan(CLOSINGS.with(|memo| memo.replace(Some(None))))
+    }
+}
+
+impl Drop for ClosingScan {
+    fn drop(&mut self) {
+        CLOSINGS.with(|memo| memo.set(self.0));
+    }
+}
+
+/// Addresses in the text of one run of objects, which ends at `end`.
+#[derive(Clone, Copy)]
+struct Closings {
+    end: usize,
+    /// Per marker of `MARKERS`: `(from, closing)`, the first valid closing
+    /// marker at or after `from`.
+    found: [Option<(usize, Option<usize>)>; 6],
+    /// `(from, [first, second])`: the first two newlines at or after `from`.
+    newlines: Option<(usize, [Option<usize>; 2])>,
+}
+
+impl Closings {
+    fn new(end: usize) -> Closings {
+        Closings {
+            end,
+            found: [None; 6],
+            newlines: None,
+        }
+    }
+
+    /// The offset of the marker that closes the emphasis `input` opens:
+    /// the first valid closing marker after at least one character, unless
+    /// two newlines come before it.
+    fn closing(&mut self, marker: u8, input: Input) -> Option<usize> {
+        let start = input.s.as_ptr() as usize;
+        let slot = MARKERS.iter().position(|&m| m == marker).unwrap();
+        let from = start + 2;
+        let closing = match self.found[slot] {
+            Some((scanned, closing)) if scanned <= from && closing.is_none_or(|c| c >= from) => {
+                closing
+            }
+            _ => {
+                let closing = memchr_iter(marker, &input.as_bytes()[2..])
+                    .map(|idx| idx + 2)
+                    .find(|&idx| validate_marker(idx, input))
+                    .map(|idx| start + idx);
+                self.found[slot] = Some((from, closing));
+                closing
+            }
+        }?;
+        let second_newline = self.newlines_from(start, input)[1];
+        second_newline
+            .is_none_or(|nl| nl > closing)
+            .then(|| closing - start)
+    }
+
+    fn newlines_from(&mut self, start: usize, input: Input) -> [Option<usize>; 2] {
+        let next_newline = |after: usize| {
+            memchr::memchr(b'\n', &input.as_bytes()[after - start..]).map(|idx| after + idx)
+        };
+        let from_start = || {
+            let first = next_newline(start);
+            [first, first.and_then(|nl| next_newline(nl + 1))]
+        };
+        let newlines = match self.newlines {
+            Some((from, newlines)) if from <= start => match newlines {
+                [Some(first), _] if first >= start => newlines,
+                [Some(_), Some(second)] if second >= start => {
+                    [Some(second), next_newline(second + 1)]
+                }
+                [Some(_), Some(_)] => from_start(),
+                _ => [None, None],
+            },
+            _ => from_start(),
+        };
+        self.newlines = Some((start, newlines));
+        newlines
     }
 }
 
@@ -136,7 +236,7 @@ fn validate_marker(pos: usize, text: Input) -> bool {
 }
 
 /// `[[:space:]]` under org-mode's syntax table.
-fn is_org_space(c: char) -> bool {
+pub fn is_org_space(c: char) -> bool {
     matches!(
         c,
         '\t' | '\n' | '\x0c' | '\r' | ' ' | '\u{a0}' | '\u{2000}'..='\u{200b}' | '\u{202f}' | '\u{205f}' | '\u{3000}'
